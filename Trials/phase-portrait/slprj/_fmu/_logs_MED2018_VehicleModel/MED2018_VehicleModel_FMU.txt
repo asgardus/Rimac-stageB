@@ -1,0 +1,1 @@
+# Debug Logging enabled for block 'MED2018_VehicleModel/FMU'

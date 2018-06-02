@@ -1,0 +1,2 @@
+# Debug Logging enabled for block 'MED2018_VehicleModel/FMU'
+Log from FMU: [category:, status:fmi2Error] event updating: dsblock_ failed, QiErr = 1

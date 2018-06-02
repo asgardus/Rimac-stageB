@@ -1,0 +1,18 @@
+# Debug Logging enabled for block 'simpleVehicleModel/FMU'
+Log from FMU: [category:, status:fmi2Error] DataAccess.TBL v3.0.7567, Copyright 2013-2017, Modelon AB. All rights reserved.
+MatDataFile:: Unable to open file: "driftcircuit.mat"
+MatDataFile:: Unable to open file: "driftcircuit.mat"
+TableMatFile:: Unable to open file: "driftcircuit.mat"
+The following error was detected at time: 0
+Log from FMU: [category:, status:fmi2Error] ModelonTableGetY : 'centerline' table is not loaded properly.
+
+Log from FMU: [category:, status:fmi2Error] The stack of functions is:
+Log from FMU: [category:, status:fmi2Error] Modelon.DataAccess.Internal.ModelonTable1D.getY
+Log from FMU: [category:, status:fmi2Error] Modelon.DataAccess.Internal.ModelonTable1D.getY(
+ground.centerline_table_ID, 
+1, 
+1)
+Log from FMU: [category:, status:fmi2Error] fmiInitialize: dsblock_ failed, QiErr = 1
+Log from FMU: [category:, status:fmi2Error] Unless otherwise indicated by error messages, possible errors are (non-exhaustive):
+The model references external data that is not present on the target machine, at least not with the same location.
+
