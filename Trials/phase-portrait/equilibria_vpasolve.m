@@ -34,7 +34,7 @@ for i=1:length(delta_ss)
     
     eqn1 = (Fy34+Fy12*cos(delta))/(m*vx)-x2 == 0; % y-acceleration
     eqn2 = (a*Fy12*cos(delta)-b*Fy34)/Jz == 0; % Yaw rate angular acceleration
-%     eqn3 = (x3-Fy12*sin(delta)/m)+ x1*x2*vx == 0; % Rear Tire forces
+    %     eqn3 = (x3-Fy12*sin(delta)/m)+ x1*x2*vx == 0; % Rear Tire forces
     
     [sol_x, sol_y] = vpasolve(eqn1,[x1,x2]);
 end
