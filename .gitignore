@@ -1,2 +1,6 @@
 
 *.asv
+
+# keep the folder but ignore the content
+secret/*
+!slprj/.gitkeep
