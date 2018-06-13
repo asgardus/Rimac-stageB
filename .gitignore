@@ -5,3 +5,4 @@
 slprj/
 /slprj
 !slprj/.gitkeep
+*.autosave
