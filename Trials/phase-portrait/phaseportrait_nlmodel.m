@@ -53,5 +53,5 @@ for i=1:length(delta_ss)
 end
 
 %% Phase portrait generation
-figure(1);
-plot(delta_ss.*is*180/pi,mat(:,2))
+% figure(1);
+% plot(delta_ss.*is*180/pi,mat(:,2))
