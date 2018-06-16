@@ -16,7 +16,7 @@ g = 9.81;
 
 % states
 vx=10;
-delta_ss=(-20:5:20)./is*(pi/180);
+delta_ss=-10/is*(pi/180);%(-20:5:20)./is*(pi/180);
 
 % r = linspace(-60,60,20).*pi./180;
 % v_y = linspace(-40,40,20).*pi./180;
@@ -27,7 +27,7 @@ for i=1:length(delta_ss)
     load('modelfits.mat')
 
     %% Solving equations for steady state
-    fun = @state_equilibria;
+    fun = @phaseportrait_fmu_eq;
     x0 = [0,0,3000];
     x(i,:) = fsolve(fun,x0);
     % betadot = (Fy34+Fy12*cos(delta))/(mass*vx)-psidot; % y-acceleration

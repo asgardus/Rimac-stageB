@@ -19,6 +19,18 @@ for i=1:length(fz_mat)
             Fy_mat(j,k) = Fy(end);                        
         end
     end
-    figure(i);
-    plot(Fx_mat(:,:),Fy_mat(:,:))
+    Fx_axis(1,i)=min(min(Fx_mat));    Fx_axis(2,i)=max(max(Fx_mat));
+    Fy_axis(1,i)=min(min(Fy_mat));    Fy_axis(2,i)=max(max(Fy_mat));
+    x1=(abs(Fx_axis(1,i))+abs(Fx_axis(1,i)))/2;
+    y1=(abs(Fy_axis(1,i))+abs(Fy_axis(1,i)))/2;
+    const_Fx(1,i) = x1/fz;
+    const_Fy(1,i) = y1/fz;
+%     syms x y
+%     y=sqrt((y1^2)*(1-(x/x1)^2));
+%     figure(i);
+%     plot(Fx_mat(:,:),Fy_mat(:,:))
+%     hold on
+%     fplot(y)
+%     hold on
+%     fplot(-y)
 end
