@@ -1,0 +1,33 @@
+%implements s6_b0_ol9zi_Update "C"
+
+%function Update(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%<SLibCGIRDumpSystemUserCode(5, "Update", "Header")>\
+%<SLibCGIRDumpSystemUserCode(5, "Update", "Body")>\
+/* Update for Atomic SubSystem: '<S4>/Control' */
+/* Update for Delay: '<S36>/UD' */
+solution1_7009_CAN_DW.UD_DSTATE = solution1_7009_CAN_B.TSamp;
+/* Update for DiscreteIntegrator: '<S33>/Integrator' */
+solution1_7009_CAN_DW.Integrator_DSTATE += solution1_7009_CAN_P.Integrator_gainval * solution1_7009_CAN_B.IntegralGain;
+/* Update for DiscreteIntegrator: '<S34>/Filter' */
+solution1_7009_CAN_DW.Filter_DSTATE += solution1_7009_CAN_P.Filter_gainval * solution1_7009_CAN_B.FilterCoefficient;
+/* Update for DiscreteIntegrator: '<S34>/Integrator' */
+solution1_7009_CAN_DW.Integrator_DSTATE_g += solution1_7009_CAN_P.Integrator_gainval_e * solution1_7009_CAN_B.IntegralGain_j;
+/* End of Update for SubSystem: '<S4>/Control' */
+
+/* Update for UnitDelay: '<S4>/Unit Delay' */
+solution1_7009_CAN_DW.UnitDelay_DSTATE = solution1_7009_CAN_B.Switch;
+%<SLibCGIRDumpSystemUserCode(5, "Update", "Trailer")>\
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function UpdateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Update(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%endfunction

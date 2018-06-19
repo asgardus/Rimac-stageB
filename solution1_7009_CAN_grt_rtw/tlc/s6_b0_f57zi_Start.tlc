@@ -1,0 +1,70 @@
+%implements s6_b0_f57zi_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcStartFcnOfS5B0 = OpaqueTLCBlockFcn("Start", 5, 0, 0, 0)
+%assign tlcStartFcnOfS5B2 = OpaqueTLCBlockFcn("Start", 5, 2, 0, 0)
+%assign tlcStartFcnOfS5B4 = OpaqueTLCBlockFcn("Start", 5, 4, 0, 0)
+%assign tlcStartFcnOfS5B14 = OpaqueTLCBlockFcn("Start", 5, 14, 0, 0)
+%assign tlcStartFcnOfS5B19 = OpaqueTLCBlockFcn("Start", 5, 19, 0, 0)
+%assign tlcStartFcnOfS5B21 = OpaqueTLCBlockFcn("Start", 5, 21, 0, 0)
+%assign tlcStartFcnOfS5B23 = OpaqueTLCBlockFcn("Start", 5, 23, 0, 0)
+%assign tlcStartFcnOfS5B25 = OpaqueTLCBlockFcn("Start", 5, 25, 0, 0)
+%assign tlcStartFcnOfS5B28 = OpaqueTLCBlockFcn("Start", 5, 28, 0, 0)
+%assign tlcStartFcnOfS5B31 = OpaqueTLCBlockFcn("Start", 5, 31, 0, 0)
+%if !WHITE_SPACE(tlcStartFcnOfS5B0)
+/* Start for S-Function (rti_commonblock): '<S1>/S-Function1' */
+%<tlcStartFcnOfS5B0>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B2)
+/* Start for S-Function (rti_commonblock): '<S2>/S-Function1' */
+%<tlcStartFcnOfS5B2>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B4)
+/* Start for S-Function (rti_commonblock): '<S11>/S-Function1' */
+%<tlcStartFcnOfS5B4>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B14)
+/* Start for S-Function (rti_commonblock): '<S6>/S-Function1' */
+%<tlcStartFcnOfS5B14>\
+%endif
+/* Start for InitialCondition: '<Root>/IC' */
+solution1_7009_CAN_B.IC = solution1_7009_CAN_P.IC_Value;
+solution1_7009_CAN_DW.IC_FirstOutputTime = true;
+%if !WHITE_SPACE(tlcStartFcnOfS5B19)
+/* Start for S-Function (rti_commonblock): '<S7>/S-Function1' */
+%<tlcStartFcnOfS5B19>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B21)
+/* Start for S-Function (rti_commonblock): '<S8>/S-Function1' */
+%<tlcStartFcnOfS5B21>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B23)
+/* Start for S-Function (rti_commonblock): '<S9>/S-Function1' */
+%<tlcStartFcnOfS5B23>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B25)
+/* Start for S-Function (rti_commonblock): '<S10>/S-Function1' */
+%<tlcStartFcnOfS5B25>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B28)
+/* Start for S-Function (rti_commonblock): '<S12>/S-Function1' */
+%<tlcStartFcnOfS5B28>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS5B31)
+/* Start for S-Function (rti_commonblock): '<S3>/S-Function1' */
+%<tlcStartFcnOfS5B31>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%endfunction

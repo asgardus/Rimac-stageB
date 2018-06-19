@@ -1,0 +1,67 @@
+%implements s6_b0_f57zi_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcTerminateFcnOfS5B0 = OpaqueTLCBlockFcn("Terminate", 5, 0, 0, 3)
+%assign tlcTerminateFcnOfS5B2 = OpaqueTLCBlockFcn("Terminate", 5, 2, 0, 3)
+%assign tlcTerminateFcnOfS5B4 = OpaqueTLCBlockFcn("Terminate", 5, 4, 0, 3)
+%assign tlcTerminateFcnOfS5B14 = OpaqueTLCBlockFcn("Terminate", 5, 14, 0, 3)
+%assign tlcTerminateFcnOfS5B19 = OpaqueTLCBlockFcn("Terminate", 5, 19, 0, 3)
+%assign tlcTerminateFcnOfS5B21 = OpaqueTLCBlockFcn("Terminate", 5, 21, 0, 3)
+%assign tlcTerminateFcnOfS5B23 = OpaqueTLCBlockFcn("Terminate", 5, 23, 0, 3)
+%assign tlcTerminateFcnOfS5B25 = OpaqueTLCBlockFcn("Terminate", 5, 25, 0, 3)
+%assign tlcTerminateFcnOfS5B28 = OpaqueTLCBlockFcn("Terminate", 5, 28, 0, 3)
+%assign tlcTerminateFcnOfS5B31 = OpaqueTLCBlockFcn("Terminate", 5, 31, 0, 3)
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B0)
+/* Terminate for S-Function (rti_commonblock): '<S1>/S-Function1' */
+%<tlcTerminateFcnOfS5B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B2)
+/* Terminate for S-Function (rti_commonblock): '<S2>/S-Function1' */
+%<tlcTerminateFcnOfS5B2>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B4)
+/* Terminate for S-Function (rti_commonblock): '<S11>/S-Function1' */
+%<tlcTerminateFcnOfS5B4>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B14)
+/* Terminate for S-Function (rti_commonblock): '<S6>/S-Function1' */
+%<tlcTerminateFcnOfS5B14>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B19)
+/* Terminate for S-Function (rti_commonblock): '<S7>/S-Function1' */
+%<tlcTerminateFcnOfS5B19>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B21)
+/* Terminate for S-Function (rti_commonblock): '<S8>/S-Function1' */
+%<tlcTerminateFcnOfS5B21>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B23)
+/* Terminate for S-Function (rti_commonblock): '<S9>/S-Function1' */
+%<tlcTerminateFcnOfS5B23>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B25)
+/* Terminate for S-Function (rti_commonblock): '<S10>/S-Function1' */
+%<tlcTerminateFcnOfS5B25>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B28)
+/* Terminate for S-Function (rti_commonblock): '<S12>/S-Function1' */
+%<tlcTerminateFcnOfS5B28>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B31)
+/* Terminate for S-Function (rti_commonblock): '<S3>/S-Function1' */
+%<tlcTerminateFcnOfS5B31>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%endfunction

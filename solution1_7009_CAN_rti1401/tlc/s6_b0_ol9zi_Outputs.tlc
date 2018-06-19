@@ -1,0 +1,253 @@
+%implements s6_b0_ol9zi_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+real_T rtb_Sum;
+real_T rtb_offset_error;
+%closefile localVarDecl
+%assign tlcOutputsFcnOfS5B0 = OpaqueTLCBlockFcn("Outputs", 5, 0, 0, 2)
+%assign tlcOutputsFcnOfS5B1 = OpaqueTLCBlockFcn("Outputs", 5, 1, 0, 2)
+%assign tlcOutputsFcnOfS5B2 = OpaqueTLCBlockFcn("Outputs", 5, 2, 0, 2)
+%assign tlcOutputsFcnOfS5B3 = OpaqueTLCBlockFcn("Outputs", 5, 3, 0, 2)
+%assign tlcOutputsFcnOfS5B4 = OpaqueTLCBlockFcn("Outputs", 5, 4, 0, 2)
+%assign tlcOutputsFcnOfS5B5 = OpaqueTLCBlockFcn("Outputs", 5, 5, 0, 2)
+%assign tlcOutputsFcnOfS5B19 = OpaqueTLCBlockFcn("Outputs", 5, 19, 0, 2)
+%assign tlcOutputsFcnOfS5B20 = OpaqueTLCBlockFcn("Outputs", 5, 20, 0, 2)
+%assign tlcOutputsFcnOfS5B21 = OpaqueTLCBlockFcn("Outputs", 5, 21, 0, 2)
+%assign tlcOutputsFcnOfS5B22 = OpaqueTLCBlockFcn("Outputs", 5, 22, 0, 2)
+%assign tlcOutputsFcnOfS5B23 = OpaqueTLCBlockFcn("Outputs", 5, 23, 0, 2)
+%assign tlcOutputsFcnOfS5B24 = OpaqueTLCBlockFcn("Outputs", 5, 24, 0, 2)
+%assign tlcOutputsFcnOfS5B25 = OpaqueTLCBlockFcn("Outputs", 5, 25, 0, 2)
+%assign tlcOutputsFcnOfS5B26 = OpaqueTLCBlockFcn("Outputs", 5, 26, 0, 2)
+%assign tlcOutputsFcnOfS5B27 = OpaqueTLCBlockFcn("Outputs", 5, 27, 0, 2)
+%assign tlcOutputsFcnOfS5B28 = OpaqueTLCBlockFcn("Outputs", 5, 28, 0, 2)
+%assign tlcOutputsFcnOfS5B29 = OpaqueTLCBlockFcn("Outputs", 5, 29, 0, 2)
+%assign tlcOutputsFcnOfS5B30 = OpaqueTLCBlockFcn("Outputs", 5, 30, 0, 2)
+%assign tlcOutputsFcnOfS5B31 = OpaqueTLCBlockFcn("Outputs", 5, 31, 0, 2)
+%assign tlcOutputsFcnOfS5B32 = OpaqueTLCBlockFcn("Outputs", 5, 32, 0, 2)
+%<SLibCGIRDumpSystemUserCode(5, "Output", "Header")>\
+%<SLibCGIRDumpSystemUserCode(5, "Output", "Body")>\
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B0)
+/* S-Function (rti_commonblock): '<S1>/S-Function1' */
+%<tlcOutputsFcnOfS5B0>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B1)
+/* S-Function (rtican_tlc): '<S1>/S-Function' */
+%<tlcOutputsFcnOfS5B1>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B2)
+/* S-Function (rti_commonblock): '<S2>/S-Function1' */
+%<tlcOutputsFcnOfS5B2>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B3)
+/* S-Function (rtican_tlc): '<S2>/S-Function' */
+%<tlcOutputsFcnOfS5B3>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B4)
+/* S-Function (rti_commonblock): '<S11>/S-Function1' */
+%<tlcOutputsFcnOfS5B4>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B5)
+/* S-Function (rti_commonblock): '<S6>/S-Function1' */
+%<tlcOutputsFcnOfS5B5>\
+%endif
+/* Outputs for Atomic SubSystem: '<S4>/Control' */
+/* Switch: '<S26>/Switch1' incorporates:
+ *  Constant: '<S26>/Constant'
+ *  Constant: '<S26>/Constant1'
+ *  Constant: '<S48>/Constant'
+ *  Constant: '<S48>/Constant1'
+ *  Constant: '<S48>/Constant2'
+ *  Constant: '<S48>/Constant3'
+ *  Constant: '<S51>/Constant'
+ *  Constant: '<S51>/Constant1'
+ *  Constant: '<S51>/Constant2'
+ *  Constant: '<S51>/Constant3'
+ *  Logic: '<S26>/Logical Operator1'
+ *  Logic: '<S48>/Logical Operator'
+ *  Logic: '<S51>/Logical Operator'
+ *  Logic: '<S54>/conjunction'
+ *  Logic: '<S55>/conjunction'
+ *  Logic: '<S60>/conjunction'
+ *  Logic: '<S61>/conjunction'
+ *  RelationalOperator: '<S54>/max_relop'
+ *  RelationalOperator: '<S54>/min_relop'
+ *  RelationalOperator: '<S55>/max_relop'
+ *  RelationalOperator: '<S55>/min_relop'
+ *  RelationalOperator: '<S60>/max_relop'
+ *  RelationalOperator: '<S60>/min_relop'
+ *  RelationalOperator: '<S61>/max_relop'
+ *  RelationalOperator: '<S61>/min_relop'
+ */
+if ((solution1_7009_CAN_P.Constant1_Value_l < solution1_7009_CAN_B.SFunction1_o4_k) && (solution1_7009_CAN_B.SFunction1_o4_k < solution1_7009_CAN_P.Constant_Value_e) && ((solution1_7009_CAN_P.Constant3_Value_n < solution1_7009_CAN_B.SFunction1_o4) && (solution1_7009_CAN_B.SFunction1_o4 < solution1_7009_CAN_P.Constant2_Value_g)) && ((solution1_7009_CAN_P.Constant1_Value_d < solution1_7009_CAN_B.SFunction1_o4_k) && (solution1_7009_CAN_B.SFunction1_o4_k < solution1_7009_CAN_P.Constant_Value_l) && ((solution1_7009_CAN_P.Constant3_Value_o < solution1_7009_CAN_B.SFunction1_o4) && (solution1_7009_CAN_B.SFunction1_o4 < solution1_7009_CAN_P.Constant2_Value_p)))) {
+    rtb_offset_error = solution1_7009_CAN_P.Constant1_Value_h;
+} else {
+    rtb_offset_error = solution1_7009_CAN_P.Constant_Value;
+}
+/* End of Switch: '<S26>/Switch1' */
+
+/* Sum: '<S26>/Subtract1' */
+rtb_offset_error -= solution1_7009_CAN_B.SFunction1_o1_h;
+/* SampleTimeMath: '<S36>/TSamp' incorporates:
+ *  Gain: '<S33>/Derivative Gain'
+ *
+ * About '<S36>/TSamp':
+ *  y = u * K where K = 1 / ( w * Ts )
+ */
+solution1_7009_CAN_B.TSamp = solution1_7009_CAN_P.DiscretePIDController1_D * rtb_offset_error * solution1_7009_CAN_P.TSamp_WtEt;
+/* Gain: '<S33>/Integral Gain' */
+solution1_7009_CAN_B.IntegralGain = solution1_7009_CAN_P.DiscretePIDController1_I * rtb_offset_error;
+/* Sum: '<S33>/Sum' incorporates:
+ *  Delay: '<S36>/UD'
+ *  DiscreteIntegrator: '<S33>/Integrator'
+ *  Gain: '<S33>/Proportional Gain'
+ *  Sum: '<S36>/Diff'
+ */
+rtb_Sum = (solution1_7009_CAN_P.DiscretePIDController1_P * rtb_offset_error + solution1_7009_CAN_DW.Integrator_DSTATE) + (solution1_7009_CAN_B.TSamp - solution1_7009_CAN_DW.UD_DSTATE);
+/* Sum: '<S26>/Subtract2' incorporates:
+ *  Constant: '<S26>/Constant3'
+ */
+rtb_offset_error = solution1_7009_CAN_P.Constant3_Value - solution1_7009_CAN_B.SFunction1_o2_l;
+/* Gain: '<S34>/Filter Coefficient' incorporates:
+ *  DiscreteIntegrator: '<S34>/Filter'
+ *  Gain: '<S34>/Derivative Gain'
+ *  Sum: '<S34>/SumD'
+ */
+solution1_7009_CAN_B.FilterCoefficient = (solution1_7009_CAN_P.DiscretePIDController2_D * rtb_offset_error - solution1_7009_CAN_DW.Filter_DSTATE) * solution1_7009_CAN_P.DiscretePIDController2_N;
+/* Gain: '<S34>/Integral Gain' */
+solution1_7009_CAN_B.IntegralGain_j = solution1_7009_CAN_P.DiscretePIDController2_I * rtb_offset_error;
+/* Sum: '<S34>/Sum' incorporates:
+ *  DiscreteIntegrator: '<S34>/Integrator'
+ *  Gain: '<S34>/Proportional Gain'
+ */
+rtb_offset_error = (solution1_7009_CAN_P.DiscretePIDController2_P * rtb_offset_error + solution1_7009_CAN_DW.Integrator_DSTATE_g) + solution1_7009_CAN_B.FilterCoefficient;
+/* End of Outputs for SubSystem: '<S4>/Control' */
+
+/* Product: '<S4>/Product' incorporates:
+ *  Product: '<S4>/Product1'
+ *  UnitDelay: '<S4>/Unit Delay'
+ */
+rtb_Sum *= solution1_7009_CAN_DW.UnitDelay_DSTATE;
+solution1_7009_CAN_B.Product = rtb_Sum;
+/* Product: '<S4>/Product1' */
+solution1_7009_CAN_B.Product1 = rtb_Sum;
+/* Product: '<S4>/Product2' incorporates:
+ *  Constant: '<S4>/Constant'
+ *  Product: '<S4>/Product3'
+ *  UnitDelay: '<S4>/Unit Delay'
+ */
+rtb_Sum = solution1_7009_CAN_P.Constant_Value_g * solution1_7009_CAN_DW.UnitDelay_DSTATE;
+solution1_7009_CAN_B.Product2 = rtb_Sum;
+/* Product: '<S4>/Product3' */
+solution1_7009_CAN_B.Product3 = rtb_Sum;
+/* RateLimiter: '<S4>/Rate Limiter' */
+rtb_Sum = rtb_offset_error - solution1_7009_CAN_DW.PrevY;
+if (rtb_Sum > solution1_7009_CAN_P.RateLimiter_RisingLim) {
+    rtb_Sum = solution1_7009_CAN_DW.PrevY + solution1_7009_CAN_P.RateLimiter_RisingLim;
+} else if (rtb_Sum < solution1_7009_CAN_P.RateLimiter_FallingLim) {
+    rtb_Sum = solution1_7009_CAN_DW.PrevY + solution1_7009_CAN_P.RateLimiter_FallingLim;
+} else {
+    rtb_Sum = rtb_offset_error;
+}
+solution1_7009_CAN_DW.PrevY = rtb_Sum;
+/* End of RateLimiter: '<S4>/Rate Limiter' */
+
+/* Product: '<S4>/Product4' incorporates:
+ *  UnitDelay: '<S4>/Unit Delay'
+ */
+solution1_7009_CAN_B.Product4 = rtb_Sum * solution1_7009_CAN_DW.UnitDelay_DSTATE;
+/* Switch: '<S4>/Switch' incorporates:
+ *  Constant: '<S13>/Constant'
+ *  Constant: '<S4>/Constant1'
+ *  Constant: '<S4>/Constant2'
+ *  RelationalOperator: '<S13>/Compare'
+ */
+if (solution1_7009_CAN_B.SFunction1_o3_o == solution1_7009_CAN_P.CompareToConstant_const) {
+    solution1_7009_CAN_B.Switch = solution1_7009_CAN_P.Constant2_Value;
+} else {
+    solution1_7009_CAN_B.Switch = solution1_7009_CAN_P.Constant1_Value;
+}
+/* End of Switch: '<S4>/Switch' */
+
+/* InitialCondition: '<Root>/IC' */
+if (solution1_7009_CAN_DW.IC_FirstOutputTime) {
+    solution1_7009_CAN_DW.IC_FirstOutputTime = false;
+    solution1_7009_CAN_B.IC = solution1_7009_CAN_P.IC_Value;
+} else {
+    solution1_7009_CAN_B.IC = solution1_7009_CAN_B.SFunction1_o3_o;
+}
+/* End of InitialCondition: '<Root>/IC' */
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B19)
+
+/* S-Function (rtican_tlc): '<S6>/S-Function' */
+%<tlcOutputsFcnOfS5B19>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B20)
+/* S-Function (rti_commonblock): '<S7>/S-Function1' */
+%<tlcOutputsFcnOfS5B20>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B21)
+/* S-Function (rtican_tlc): '<S7>/S-Function' */
+%<tlcOutputsFcnOfS5B21>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B22)
+/* S-Function (rti_commonblock): '<S8>/S-Function1' */
+%<tlcOutputsFcnOfS5B22>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B23)
+/* S-Function (rtican_tlc): '<S8>/S-Function' */
+%<tlcOutputsFcnOfS5B23>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B24)
+/* S-Function (rti_commonblock): '<S9>/S-Function1' */
+%<tlcOutputsFcnOfS5B24>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B25)
+/* S-Function (rtican_tlc): '<S9>/S-Function' */
+%<tlcOutputsFcnOfS5B25>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B26)
+/* S-Function (rti_commonblock): '<S10>/S-Function1' */
+%<tlcOutputsFcnOfS5B26>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B27)
+/* S-Function (rtican_tlc): '<S10>/S-Function' */
+%<tlcOutputsFcnOfS5B27>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B28)
+/* S-Function (rtican_tlc): '<S11>/S-Function' */
+%<tlcOutputsFcnOfS5B28>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B29)
+/* S-Function (rti_commonblock): '<S12>/S-Function1' */
+%<tlcOutputsFcnOfS5B29>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B30)
+/* S-Function (rtican_tlc): '<S12>/S-Function' */
+%<tlcOutputsFcnOfS5B30>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B31)
+/* S-Function (rtican_tlc): '<S3>/S-Function' */
+%<tlcOutputsFcnOfS5B31>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS5B32)
+/* S-Function (rti_commonblock): '<S3>/S-Function1' */
+%<tlcOutputsFcnOfS5B32>\
+%endif
+%<SLibCGIRDumpSystemUserCode(5, "Output", "Trailer")>\
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%endfunction

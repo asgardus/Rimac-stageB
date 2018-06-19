@@ -1,0 +1,5658 @@
+-- ****************************************************************************
+--
+--  Trace file: Asgardus_Challenge.trc
+--
+--  RTI1401 7.9 (02-Nov-2017)
+--  Tue Jun 19 13:13:08 2018
+--
+--  Copyright 2018, dSPACE GmbH. All rights reserved.
+--
+-- ****************************************************************************
+--
+--  Used options:
+--    TRCGenerateVirtualBlocks      = 1
+--    TRCGenerateLabels             = 1
+--    TRCGenerateStates             = 0
+--    TRCGenerateDerivatives        = 0
+--    TRCGenerateParamValues        = 0
+--    TRCGenerateApplicationKeyword = 0
+--    TRCOnlyGlobals                = 0
+--    TRCIsOmitVdOn                 = 0
+--
+--  Trace file format: 3
+
+-- ******** Keywords **********************************************************
+-- _application "Asgardus_Challenge.map"
+
+_genname     "RTI"
+_genversion  "7.9"
+_gendate     "06/19/2018 13:13:11"
+_description ""
+_author      "RTI1401 7.9 (02-Nov-2017)"
+_model       "Asgardus_Challenge"
+
+-- Default data type formats
+_floating_point_type(64,IEEE)
+_integer_type(32)
+
+-- No Data Capture blocks within model: use base sample time as sampling period
+sampling_period[0]
+{
+  value:       0.01
+  alias:       "HostService"
+  increment:   0.01
+  unit:        "s"
+}
+
+
+
+
+-- Type definitions for arrays
+typedef Asgardus_Challenge_ArrayDT10_2 int(32)[2]
+
+
+-- ******** Simulation control variables **************************************
+
+finalTime
+{
+ type:  flt(64,IEEE)*
+ alias: "finalTime"
+ desc:  "Simulation stop time. When reached, simState switches to STOP."
+ flags:  READONLY
+ unit:  "s"
+}
+
+currentTime
+{
+ type:  flt(64,IEEE)*
+ alias: "currentTime"
+ desc:  "Current simulation time. Increments with execution of Timer Task 1."
+ flags: READONLY
+ unit:  "s"
+}
+
+modelStepSize
+{
+ type:  flt(64,IEEE)
+ alias: "modelStepSize"
+ desc:  "Fixed step size of the model, sample time of Timer Task 1."
+ flags: READONLY
+ unit:  "s"
+}
+
+simState
+{
+ type:  int(32)
+ alias: "simState"
+ desc:  "Simulation state: STOP=0 PAUSE=1 RUN=2"
+ unit:  "-"
+}
+
+msg_last_error_no
+{
+ type:  uint(32)
+ alias: "errorNumber"
+ desc:  "Error number of last error message (zero if no error)."
+ unit:  "-"
+ flags: READONLY
+}
+
+p_dsts_sum_of_reset_time
+{
+ type:  flt(64,IEEE)*
+ alias: "sumOfResetTime"
+ desc:  "Internal variable for summing up reset time."
+ unit:  "s"
+ flags: READONLY|HIDDEN
+}
+
+
+-- ******** Task Information variables ****************************************
+group "Task Info"
+{
+ flags: COLLAPSED
+}
+  group "Timer Task 1"
+  {
+   flags: COLLAPSED
+  }
+
+  pRti_TIMERA_STime
+  {
+   type:  flt(64,IEEE)*
+   alias: "sampleTime"
+   flags: READONLY
+  }
+  pRti_TIMERA_TTime
+  {
+   type:  flt(64,IEEE)*
+   alias: "turnaroundTime"
+   flags: READONLY
+  }
+  pRti_TIMERA_TState
+  {
+   type:  int(32)*
+   alias: "state"
+   flags: READONLY
+  }
+  pRti_TIMERA_OType
+  {
+   type:  int(32)*
+   alias: "overrunCheckType"
+   flags: READONLY
+  }
+  pRti_TIMERA_OMax
+  {
+   type:  int(32)*
+   alias: "overrunQueueMax"
+   flags: READONLY
+  }
+  pRti_TIMERA_ORpt
+  {
+   type:  int(32)*
+   alias: "overrunQueueCount"
+   flags: READONLY
+  }
+  pRti_TIMERA_OCnt
+  {
+   type:  int(32)*
+   alias: "overrunCount"
+   flags: READONLY
+  }
+  pRti_TIMERA_TCnt
+  {
+   type:  flt(64,IEEE)*
+   alias: "taskCallCount"
+   flags: READONLY
+  }
+  pRti_TIMERA_Prio
+  {
+   type:  int(32)*
+   alias: "priority"
+   flags: READONLY
+  }
+  endgroup
+
+
+endgroup
+
+
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+	group "Bus\nCreator1" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator1"
+
+	group "Bus\nCreator2" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator2"
+
+	group "Bus\nCreator3" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator3"
+
+	group "Bus\nCreator4" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator4"
+
+	group "Bus\nCreator5" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator5"
+
+	group "Bus\nCreator6" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator6"
+
+	group "Bus\nCreator7" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output
+
+
+	endgroup -- block-group "Bus\nCreator7"
+
+	group "Display" -- block-group
+	{
+	 block: "Display"
+	}
+		p_0_Asgardus_Challenge_real_T_0[16]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Display"
+
+	group "Display1" -- block-group
+	{
+	 block: "Display"
+	}
+		p_0_Asgardus_Challenge_real_T_0[17]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Display1"
+
+	group "Display2" -- block-group
+	{
+	 block: "Display"
+	}
+		p_0_Asgardus_Challenge_real_T_0[18]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Display2"
+
+	group "Display3" -- block-group
+	{
+	 block: "Display"
+	}
+		p_0_Asgardus_Challenge_real_T_0[19]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Display3"
+
+	group "Display4" -- block-group
+	{
+	 block: "Display"
+	}
+		p_0_Asgardus_Challenge_real_T_0[22]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Display4"
+
+	group "From5" -- block-group
+	{
+	 block: "From"
+	}
+		p_0_Asgardus_Challenge_real_T_0[21]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "From5"
+
+	group "From6" -- block-group
+	{
+	 block: "From"
+	}
+		p_0_Asgardus_Challenge_real_T_0[1]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "From6"
+
+	group "From7" -- block-group
+	{
+	 block: "From"
+	}
+		p_0_Asgardus_Challenge_real_T_0[2]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "From7"
+
+	group "From8" -- block-group
+	{
+	 block: "From"
+	}
+		p_0_Asgardus_Challenge_real_T_0[14]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "From8"
+
+	group "From9" -- block-group
+	{
+	 block: "From"
+	}
+		p_0_Asgardus_Challenge_real_T_0[15]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "From9"
+
+	group "Goto" -- block-group
+	{
+	 block: "Goto"
+	}
+		p_0_Asgardus_Challenge_real_T_0[21]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Goto"
+
+	group "Goto1" -- block-group
+	{
+	 block: "Goto"
+	}
+		p_0_Asgardus_Challenge_real_T_0[1]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Goto1"
+
+	group "Goto2" -- block-group
+	{
+	 block: "Goto"
+	}
+		p_0_Asgardus_Challenge_real_T_0[2]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Goto2"
+
+	group "Goto3" -- block-group
+	{
+	 block: "Goto"
+	}
+		p_0_Asgardus_Challenge_real_T_0[14]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Goto3"
+
+	group "Goto4" -- block-group
+	{
+	 block: "Goto"
+	}
+		p_0_Asgardus_Challenge_real_T_0[15]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "Goto4"
+
+	group "IC" -- block-group
+	{
+	 block: "InitialCondition"
+	}
+		p_0_Asgardus_Challenge_real_T_0[26]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_1_Asgardus_Challenge_real_T_0[32]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "IC"
+
+  
+  
+	group "ACC" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[7]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ACC_X"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[8]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ACC_Y"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[9]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ACC_Z"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[10]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "POS_Y"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "ACC"
+  
+  
+	group "ANGRATE" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[23]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ANGRATE_PITCH"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[24]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ANGRATE_YAW"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[25]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ANGRATE_ROLL"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "ANGRATE"
+  
+  
+	group "CAN_TYPE1_SETUP_M1_C1" -- subsystem-group
+
+
+	endgroup -- subsystem-group "CAN_TYPE1_SETUP_M1_C1"
+  
+  
+	group "Control Algorithm" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[21]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "steer"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[1]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Torque_1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[2]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Torque_2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[14]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Torque_3"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[15]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Torque_4"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Feedback" -- block-group
+		{
+		 block: "Inport"
+		}
+			-- Skipping output
+
+
+		endgroup -- block-group "Feedback"
+
+		group "Bus\nSelector" -- block-group
+		{
+		 block: "BusSelector"
+		}
+			-- Skipping output
+			-- Skipping output
+			-- Skipping output
+			-- Skipping output
+			-- Skipping output
+			-- Skipping output
+			p_0_Asgardus_Challenge_real_T_0[12]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out7"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[11]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out8"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[26]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out9"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nSelector"
+
+		group "Bus\nSelector1" -- block-group
+		{
+		 block: "BusSelector"
+		}
+			p_0_Asgardus_Challenge_real_T_0[6]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[10]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out2"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nSelector1"
+
+		group "Bus\nSelector2" -- block-group
+		{
+		 block: "BusSelector"
+		}
+			p_0_Asgardus_Challenge_real_T_0[24]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[23]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out2"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[25]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out3"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nSelector2"
+
+		group "Constant" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_1_Asgardus_Challenge_real_T_0[19]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant"
+
+		group "Demux1" -- block-group
+		{
+		 block: "Demux"
+		}
+			p_0_Asgardus_Challenge_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[4]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out2"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[5]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out3"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Demux1"
+
+		group "Display" -- block-group
+		{
+		 block: "Display"
+		}
+			p_0_Asgardus_Challenge_real_T_0[26]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Display"
+
+		group "From10" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From10"
+
+		group "From12" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[6]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From12"
+
+		group "From14" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[10]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From14"
+
+		group "From18" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From18"
+
+		group "From19" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[4]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From19"
+
+		group "From2" -- block-group
+		{
+		 block: "From"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "From2"
+
+		group "From21" -- block-group
+		{
+		 block: "From"
+		}
+			-- Skipping output
+
+
+		endgroup -- block-group "From21"
+
+		group "From26" -- block-group
+		{
+		 block: "From"
+		}
+			-- Skipping output
+
+
+		endgroup -- block-group "From26"
+
+		group "From28" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[29]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From28"
+
+		group "From29" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[25]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From29"
+
+		group "From3" -- block-group
+		{
+		 block: "From"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "From3"
+
+		group "From30" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From30"
+
+		group "From33" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From33"
+
+		group "From34" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From34"
+
+		group "From35" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[12]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From35"
+
+		group "From4" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From4"
+
+		group "From5" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From5"
+
+		group "From6" -- block-group
+		{
+		 block: "From"
+		}
+			p_0_Asgardus_Challenge_real_T_0[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "From6"
+
+		group "Goto" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[6]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto"
+
+		group "Goto1" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[10]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto1"
+
+		group "Goto11" -- block-group
+		{
+		 block: "Goto"
+		}
+			-- Skipping input
+
+
+
+		endgroup -- block-group "Goto11"
+
+		group "Goto13" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto13"
+
+		group "Goto14" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto14"
+
+		group "Goto15" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto15"
+
+		group "Goto17" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[26]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto17"
+
+		group "Goto2" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[12]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto2"
+
+		group "Goto20" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto20"
+
+		group "Goto21" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto21"
+
+		group "Goto22" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[29]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto22"
+
+		group "Goto23" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto23"
+
+		group "Goto24" -- block-group
+		{
+		 block: "Goto"
+		}
+
+			-- Skipping inport In1
+
+
+
+
+		endgroup -- block-group "Goto24"
+
+		group "Goto25" -- block-group
+		{
+		 block: "Goto"
+		}
+
+			-- Skipping inport In1
+
+
+
+
+		endgroup -- block-group "Goto25"
+
+		group "Goto4" -- block-group
+		{
+		 block: "Goto"
+		}
+			-- Skipping input
+
+
+
+		endgroup -- block-group "Goto4"
+
+		group "Goto5" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto5"
+
+		group "Goto6" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[4]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto6"
+
+		group "Goto7" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[25]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto7"
+
+		group "Goto8" -- block-group
+		{
+		 block: "Goto"
+		}
+			p_0_Asgardus_Challenge_real_T_0[11]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1"
+			 flags:   READONLY
+			}
+
+
+
+		endgroup -- block-group "Goto8"
+
+		group "Mux1" -- block-group
+		{
+		 block: "Mux"
+		}
+			-- Skipping output
+
+
+		endgroup -- block-group "Mux1"
+
+		group "Divide" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_Asgardus_Challenge_real_T_0[27]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide"
+
+		group "Product" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_Asgardus_Challenge_real_T_0[15]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product"
+
+		group "Product1" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_Asgardus_Challenge_real_T_0[14]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product1"
+
+		group "Product2" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_Asgardus_Challenge_real_T_0[2]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product2"
+
+		group "Product3" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_Asgardus_Challenge_real_T_0[1]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product3"
+
+		group "Product4" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_Asgardus_Challenge_real_T_0[21]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product4"
+
+		group "Rate Limiter" -- block-group
+		{
+		 block: "RateLimiter"
+		}
+			p_0_Asgardus_Challenge_real_T_0[20]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_Asgardus_Challenge_real_T_0[29]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "RisingSlewLimit"
+			 flags:   PARAM
+			}
+			p_1_Asgardus_Challenge_real_T_0[30]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "FallingSlewLimit"
+			 flags:   PARAM
+			}
+			p_1_Asgardus_Challenge_real_T_0[31]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Rate Limiter"
+
+		group "Trigonometric\nFunction" -- block-group
+		{
+		 block: "Trigonometry"
+		}
+			p_0_Asgardus_Challenge_real_T_0[29]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Trigonometric\nFunction"
+
+  
+  
+		group "Control" -- subsystem-group
+
+			p_0_Asgardus_Challenge_real_T_0[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "cmd_steer"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "cmd_Tx3"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "cmd_Tx4"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "segment" -- block-group
+			{
+			 block: "Inport"
+			}
+				-- Skipping output
+
+
+			endgroup -- block-group "segment"
+
+			group "beta" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[29]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "beta"
+
+			group "offset" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[12]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "offset"
+
+			group "yawRate" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[25]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "yawRate"
+
+			group "vel_x" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[3]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "vel_x"
+
+			group "Demux" -- block-group
+			{
+			 block: "Demux"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[21]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_Asgardus_Challenge_boolean_T_1[6]
+				{
+				 type:    uint(8)*
+				 alias:   "Out2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_Asgardus_Challenge_boolean_T_1[13]
+				{
+				 type:    uint(8)*
+				 alias:   "Out3"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_Asgardus_Challenge_boolean_T_1[35]
+				{
+				 type:    uint(8)*
+				 alias:   "Out4"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_Asgardus_Challenge_boolean_T_1[28]
+				{
+				 type:    uint(8)*
+				 alias:   "Out5"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Demux"
+
+			group "From1" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[3]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From1"
+
+			group "From2" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[12]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From2"
+
+			group "From64" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From64"
+
+			group "From65" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From65"
+
+			group "From66" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[56]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From66"
+
+			group "From67" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[21]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From67"
+
+			group "From68" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[6]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From68"
+
+			group "From69" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[13]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From69"
+
+			group "From72" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[35]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From72"
+
+			group "From73" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[28]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From73"
+
+			group "From74" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[29]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From74"
+
+			group "From75" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[25]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From75"
+
+			group "Goto" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[12]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto"
+
+			group "Goto1" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[29]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto1"
+
+			group "Goto13" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[56]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto13"
+
+			group "Goto14" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[3]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto14"
+
+			group "Goto15" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto15"
+
+			group "Goto16" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto16"
+
+			group "Goto17" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[25]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto17"
+
+			group "Goto4" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[21]
+				{
+				 type:    uint(8)*
+				 alias:   "In1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto4"
+
+			group "Goto5" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[6]
+				{
+				 type:    uint(8)*
+				 alias:   "In1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto5"
+
+			group "Goto6" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[13]
+				{
+				 type:    uint(8)*
+				 alias:   "In1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto6"
+
+			group "Goto7" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[35]
+				{
+				 type:    uint(8)*
+				 alias:   "In1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto7"
+
+			group "Goto8" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[28]
+				{
+				 type:    uint(8)*
+				 alias:   "In1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto8"
+
+  
+  
+			group "Normal Driving" -- subsystem-group
+
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "TxRL"
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "TxRR"
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_Asgardus_Challenge_real_T_0[56]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "steer"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "vx" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[3]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "vx"
+
+				group "offset" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[12]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "offset"
+
+				group "T1" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[6]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "T1"
+
+				group "S2" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[13]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "S2"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[8]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[9]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[14]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator1" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[36]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator1"
+
+				group "Subtract1" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_Asgardus_Challenge_real_T_0[39]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Subtract1"
+
+				group "Subtract2" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_Asgardus_Challenge_real_T_0[48]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Subtract2"
+
+				group "Switch1" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_Asgardus_Challenge_real_T_0[38]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch1"
+
+  
+  
+				group "Discrete PID Controller1" -- subsystem-group
+
+					p_0_Asgardus_Challenge_real_T_0[47]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "y"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Asgardus_Challenge_real_T_0[5]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P"
+					 flags:   PARAM
+					}
+					p_1_Asgardus_Challenge_real_T_0[2]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "I"
+					 flags:   PARAM
+					}
+					p_1_Asgardus_Challenge_real_T_0[0]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "D"
+					 flags:   PARAM
+					}
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[39]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Integrator" -- block-group
+					{
+					 block: "DiscreteIntegrator"
+					}
+						p_0_Asgardus_Challenge_real_T_0[45]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						p_1_Asgardus_Challenge_real_T_0[12]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "gainval"
+						 flags:   PARAM
+						}
+						p_1_Asgardus_Challenge_real_T_0[13]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "InitialCondition"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Integrator"
+
+					group "Derivative Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[40]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_D
+						{
+						 refgroup: ".."
+						 refvar:   "D"
+						 alias:    "D"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "D"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Derivative Gain"
+
+					group "Integral Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[44]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_I
+						{
+						 refgroup: ".."
+						 refvar:   "I"
+						 alias:    "I"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "I"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Integral Gain"
+
+					group "Proportional Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[46]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_P
+						{
+						 refgroup: ".."
+						 refvar:   "P"
+						 alias:    "P"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "P"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Proportional Gain"
+
+					group "Sum" -- block-group
+					{
+					 block: "Sum"
+					}
+						p_0_Asgardus_Challenge_real_T_0[47]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Sum"
+
+  
+  
+					group "Differentiator" -- subsystem-group
+
+						p_0_Asgardus_Challenge_real_T_0[43]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Y"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+						group "U" -- block-group
+						{
+						 block: "Inport"
+						}
+							p_0_Asgardus_Challenge_real_T_0[40]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "Out1"
+							 flags:   OUTPUT|READONLY
+							}
+
+
+						endgroup -- block-group "U"
+
+						group "Diff" -- block-group
+						{
+						 block: "Sum"
+						}
+							p_0_Asgardus_Challenge_real_T_0[43]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "Out1"
+							 flags:   OUTPUT|READONLY
+							}
+
+
+						endgroup -- block-group "Diff"
+
+						group "DTDup" -- block-group
+						{
+						 block: "DataTypeDuplicate"
+						}
+							p_0_Asgardus_Challenge_real_T_0[43]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "In1"
+							 flags:   READONLY
+							}
+							p_0_Asgardus_Challenge_real_T_0[41]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "In2"
+							 flags:   READONLY
+							}
+							p_0_Asgardus_Challenge_real_T_0[42]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "In3"
+							 flags:   READONLY
+							}
+
+
+
+						endgroup -- block-group "DTDup"
+
+						group "TSamp" -- block-group
+						{
+						 block: "SampleTimeMath"
+						}
+							p_0_Asgardus_Challenge_real_T_0[41]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "Out1"
+							 flags:   OUTPUT|READONLY
+							}
+							p_1_Asgardus_Challenge_real_T_0[10]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "WtEt"
+							 flags:   PARAM
+							}
+
+
+						endgroup -- block-group "TSamp"
+
+						group "UD" -- block-group
+						{
+						 block: "Delay"
+						}
+							p_0_Asgardus_Challenge_real_T_0[42]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "Out1"
+							 flags:   OUTPUT|READONLY
+							}
+							p_1_Asgardus_Challenge_uint32_T_1[0]
+							{
+							 type:    uint(32)*
+							 alias:   "DelayLength"
+							 flags:   PARAM
+							}
+							p_1_Asgardus_Challenge_real_T_0[11]
+							{
+							 type:    flt(64,IEEE)*
+							 alias:   "InitialCondition"
+							 flags:   PARAM
+							}
+
+
+						endgroup -- block-group "UD"
+
+
+
+					endgroup -- subsystem-group "Differentiator"
+
+
+				endgroup -- subsystem-group "Discrete PID Controller1"
+  
+  
+				group "Discrete PID Controller2" -- subsystem-group
+
+					p_0_Asgardus_Challenge_real_T_0[56]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "y"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P"
+					 flags:   PARAM
+					}
+					p_1_Asgardus_Challenge_real_T_0[3]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "I"
+					 flags:   PARAM
+					}
+					p_1_Asgardus_Challenge_real_T_0[1]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "D"
+					 flags:   PARAM
+					}
+					p_1_Asgardus_Challenge_real_T_0[4]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "N"
+					 flags:   PARAM
+					}
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[48]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Filter" -- block-group
+					{
+					 block: "DiscreteIntegrator"
+					}
+						p_0_Asgardus_Challenge_real_T_0[50]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						p_1_Asgardus_Challenge_real_T_0[15]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "gainval"
+						 flags:   PARAM
+						}
+						p_1_Asgardus_Challenge_real_T_0[16]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "InitialCondition"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Filter"
+
+					group "Integrator" -- block-group
+					{
+					 block: "DiscreteIntegrator"
+					}
+						p_0_Asgardus_Challenge_real_T_0[54]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						p_1_Asgardus_Challenge_real_T_0[17]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "gainval"
+						 flags:   PARAM
+						}
+						p_1_Asgardus_Challenge_real_T_0[18]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "InitialCondition"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Integrator"
+
+					group "Derivative Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[49]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_D
+						{
+						 refgroup: ".."
+						 refvar:   "D"
+						 alias:    "D"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "D"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Derivative Gain"
+
+					group "Filter Coefficient" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[52]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_N
+						{
+						 refgroup: ".."
+						 refvar:   "N"
+						 alias:    "N"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "N"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Filter Coefficient"
+
+					group "Integral Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[53]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_I
+						{
+						 refgroup: ".."
+						 refvar:   "I"
+						 alias:    "I"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "I"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Integral Gain"
+
+					group "Proportional Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_Asgardus_Challenge_real_T_0[55]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						trcref0_P
+						{
+						 refgroup: ".."
+						 refvar:   "P"
+						 alias:    "P"
+						}
+						trcref0_Gain
+						{
+						 refgroup: ".."
+						 refvar:   "P"
+						 alias:    "Gain"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "Proportional Gain"
+
+					group "Sum" -- block-group
+					{
+					 block: "Sum"
+					}
+						p_0_Asgardus_Challenge_real_T_0[56]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Sum"
+
+					group "SumD" -- block-group
+					{
+					 block: "Sum"
+					}
+						p_0_Asgardus_Challenge_real_T_0[51]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "SumD"
+
+
+
+				endgroup -- subsystem-group "Discrete PID Controller2"
+
+				p_0_Asgardus_Challenge_real_T_0[47]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "cmd_Tx"
+				 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Discrete PID Controller1/y"
+				 flags:   READONLY
+				}
+				p_0_Asgardus_Challenge_real_T_0[12]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "offset"
+				 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/offset/Out1"
+				 flags:   READONLY
+				}
+				p_0_Asgardus_Challenge_real_T_0[48]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "offset_error"
+				 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract2/Out1"
+				 flags:   READONLY
+				}
+				p_0_Asgardus_Challenge_real_T_0[39]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "velocity_error"
+				 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract1/Out1"
+				 flags:   READONLY
+				}
+				p_0_Asgardus_Challenge_real_T_0[3]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "vx"
+				 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/vx/Out1"
+				 flags:   READONLY
+				}
+
+			endgroup -- subsystem-group "Normal Driving"
+
+			p_0_Asgardus_Challenge_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "vx{Occurence1}"
+			 origin:  "Asgardus_Challenge/Control Algorithm/Control/vel_x/Out1"
+			 flags:   READONLY
+			}
+			p_0_Asgardus_Challenge_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "vx{Occurence2}"
+			 origin:  "Asgardus_Challenge/Control Algorithm/Control/From1/Out1"
+			 flags:   READONLY
+			}
+
+		endgroup -- subsystem-group "Control"
+  
+  
+		group "Sim State check\n" -- subsystem-group
+
+			p_0_Asgardus_Challenge_real_T_0[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant1" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_1_Asgardus_Challenge_real_T_0[33]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant1"
+
+			group "Constant2" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_1_Asgardus_Challenge_real_T_0[34]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant2"
+
+			group "From7" -- block-group
+			{
+			 block: "From"
+			}
+				-- Skipping output Out1
+
+
+			endgroup -- block-group "From7"
+
+			group "Switch" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_Asgardus_Challenge_real_T_0[28]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch"
+
+			group "Unit Delay1" -- block-group
+			{
+			 block: "UnitDelay"
+			}
+				p_0_Asgardus_Challenge_real_T_0[0]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_1_Asgardus_Challenge_real_T_0[20]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Unit Delay1"
+
+  
+  
+			group "Compare\nTo Constant" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[14]
+				{
+				 type:    uint(8)*
+				 alias:   "y"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+				p_1_Asgardus_Challenge_real_T_0[7]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "const"
+				 flags:   PARAM
+				}
+
+				group "u" -- block-group
+				{
+				 block: "Inport"
+				}
+					-- Skipping output Out1
+
+
+				endgroup -- block-group "u"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_const
+					{
+					 refgroup: ".."
+					 refvar:   "const"
+					 alias:    "const"
+					}
+					trcref0_Value
+					{
+					 refgroup: ".."
+					 refvar:   "const"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Compare" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[14]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Compare"
+
+
+
+			endgroup -- subsystem-group "Compare\nTo Constant"
+
+
+		endgroup -- subsystem-group "Sim State check\n"
+  
+  
+		group "Track Segment Identifier" -- subsystem-group
+
+			p_0_Asgardus_Challenge_boolean_T_1[21]
+			{
+			 type:    uint(8)*
+			 alias:   "S1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_boolean_T_1[6]
+			{
+			 type:    uint(8)*
+			 alias:   "T1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_boolean_T_1[13]
+			{
+			 type:    uint(8)*
+			 alias:   "S2"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_boolean_T_1[35]
+			{
+			 type:    uint(8)*
+			 alias:   "T2"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_Asgardus_Challenge_boolean_T_1[28]
+			{
+			 type:    uint(8)*
+			 alias:   "S3"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "X" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "X"
+
+			group "Y" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Y"
+
+			group "From" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From"
+
+			group "From1" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From1"
+
+			group "From2" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From2"
+
+			group "From3" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From3"
+
+			group "From4" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From4"
+
+			group "From5" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From5"
+
+			group "From6" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From6"
+
+			group "From7" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From7"
+
+			group "From8" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From8"
+
+			group "From9" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From9"
+
+			group "Goto" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto"
+
+			group "Goto1" -- block-group
+			{
+			 block: "Goto"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "In1"
+				 flags:   READONLY
+				}
+
+
+
+			endgroup -- block-group "Goto1"
+
+  
+  
+			group "1 if in first straight" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[21]
+				{
+				 type:    uint(8)*
+				 alias:   "check straight 1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "X" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "X"
+
+				group "Y" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Y"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[36]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[35]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[38]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[37]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[21]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator"
+
+  
+  
+				group "Check \nDynamic Range" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[17]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[6]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[17]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[17]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[16]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[15]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range"
+  
+  
+				group "Check \nDynamic Range1" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[20]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[10]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[20]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[20]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[19]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[18]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range1"
+
+
+			endgroup -- subsystem-group "1 if in first straight"
+  
+  
+			group "1 if in first turn" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[6]
+				{
+				 type:    uint(8)*
+				 alias:   "check turn 1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "X" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "X"
+
+				group "Y" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Y"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[22]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[21]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[24]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[23]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[6]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator"
+
+  
+  
+				group "Check \nDynamic Range" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[2]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[6]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[2]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[2]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[1]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[0]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range"
+  
+  
+				group "Check \nDynamic Range1" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[5]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[10]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[5]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[5]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[4]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[3]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range1"
+
+
+			endgroup -- subsystem-group "1 if in first turn"
+  
+  
+			group "1 if in last straight" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[28]
+				{
+				 type:    uint(8)*
+				 alias:   "check last straight"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "X" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "X"
+
+				group "Y" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Y"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[40]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[39]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[42]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[41]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[28]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator"
+
+  
+  
+				group "Check \nDynamic Range" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[24]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[6]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[24]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[24]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[23]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[22]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range"
+  
+  
+				group "Check \nDynamic Range1" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[27]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[10]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[27]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[27]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[26]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[25]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range1"
+
+
+			endgroup -- subsystem-group "1 if in last straight"
+  
+  
+			group "1 if in second turn" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[35]
+				{
+				 type:    uint(8)*
+				 alias:   "check turn 2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "X" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "X"
+
+				group "Y" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Y"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[44]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[43]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[46]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[45]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[35]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator"
+
+  
+  
+				group "Check \nDynamic Range" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[31]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[6]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[31]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[31]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[30]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[29]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range"
+  
+  
+				group "Check \nDynamic Range1" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[34]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[10]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[34]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[34]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[33]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[32]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range1"
+
+
+			endgroup -- subsystem-group "1 if in second turn"
+  
+  
+			group "1 if in transition phase" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[13]
+				{
+				 type:    uint(8)*
+				 alias:   "check transition"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "X" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "X"
+
+				group "Y" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Y"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[26]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[25]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[28]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[27]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[13]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator"
+
+  
+  
+				group "Check \nDynamic Range" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[9]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[6]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[9]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[9]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[8]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[7]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range"
+  
+  
+				group "Check \nDynamic Range1" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[12]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[10]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[12]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[12]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[11]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[10]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range1"
+
+
+			endgroup -- subsystem-group "1 if in transition phase"
+
+
+		endgroup -- subsystem-group "Track Segment Identifier"
+  
+  
+		group "XY Graph" -- subsystem-group
+
+
+
+			group "x" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[6]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "x"
+
+			group "y" -- block-group
+			{
+			 block: "Inport"
+			}
+				p_0_Asgardus_Challenge_real_T_0[10]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "y"
+
+			group "Data Type Conversion" -- block-group
+			{
+			 block: "DataTypeConversion"
+			}
+
+
+
+			endgroup -- block-group "Data Type Conversion"
+
+			group "Data Type Conversion1" -- block-group
+			{
+			 block: "DataTypeConversion"
+			}
+
+
+
+			endgroup -- block-group "Data Type Conversion1"
+
+			group "Mux" -- block-group
+			{
+			 block: "Mux"
+			}
+				-- Skipping output
+
+
+			endgroup -- block-group "Mux"
+
+			group "sfunxy" -- block-group
+			{
+			 block: "S-Function"
+			}
+
+
+
+			endgroup -- block-group "sfunxy"
+
+
+
+		endgroup -- subsystem-group "XY Graph"
+
+		-- Skipping label "Torque_1"
+
+		-- Skipping label "Torque_2"
+
+		p_0_Asgardus_Challenge_real_T_0[47]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Torque_3"
+		 origin:  "Asgardus_Challenge/Control Algorithm/From4/Out1"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[47]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Torque_4"
+		 origin:  "Asgardus_Challenge/Control Algorithm/From5/Out1"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[23]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<ANGRATE_PITCH>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector2/Out2"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[25]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<ANGRATE_ROLL>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector2/Out3"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[24]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<ANGRATE_YAW>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector2/Out1"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[11]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<FUNCTION_REWARD>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector/Out8"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[12]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<OFFSET_LATERAL>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector/Out7"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[6]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<POS_X>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector1/Out1"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[10]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<POS_Y>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector1/Out2"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[26]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "<SIMULATION_STATE>"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Bus\nSelector/Out9"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[29]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "beta"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Trigonometric\nFunction/Out1"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[56]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "steer"
+		 origin:  "Asgardus_Challenge/Control Algorithm/From6/Out1"
+		 flags:   READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[20]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "steer_c"
+		 origin:  "Asgardus_Challenge/Control Algorithm/Rate Limiter/Out1"
+		 flags:   READONLY
+		}
+
+	endgroup -- subsystem-group "Control Algorithm"
+  
+  
+	group "RTI Data" -- subsystem-group
+
+
+	endgroup -- subsystem-group "RTI Data"
+  
+  
+	group "SIMSTATE" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[11]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "FUNCTION_REWARD"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[12]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "OFFSET_LATERAL"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[13]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "SIMULATION_STATE"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "SIMSTATE"
+  
+  
+	group "STEERING_CMD" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[22]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TX delay time"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "STEERING_CMD"
+  
+  
+	group "TORQUE_ACT" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[30]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TORQUE_FL_ACT"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[31]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TORQUE_FR_ACT"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[32]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TORQUE_RL_ACT"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[33]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TORQUE_RR_ACT"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "TORQUE_ACT"
+  
+  
+	group "TORQUE_CMD" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[16]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TX status"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[17]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TX time"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[18]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TX delta time"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[19]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "TX delay time"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "TORQUE_CMD"
+  
+  
+	group "VEL" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[3]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "VEL_X"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[4]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "VEL_Y"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[5]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "VEL_Z"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[6]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "POS_X"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "VEL"
+  
+  
+	group "WHEELSPEED" -- subsystem-group
+
+		p_0_Asgardus_Challenge_real_T_0[34]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "WHEELSPEED_FL"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[35]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "WHEELSPEED_FR"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[36]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "WHEELSPEED_RL"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Asgardus_Challenge_real_T_0[37]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "WHEELSPEED_RR"
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "WHEELSPEED"
+
+	p_0_Asgardus_Challenge_real_T_0[7]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_X"
+	 origin:  "Asgardus_Challenge/ACC/ACC_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[8]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_Y"
+	 origin:  "Asgardus_Challenge/ACC/ACC_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[9]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_Z"
+	 origin:  "Asgardus_Challenge/ACC/ACC_Z"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[23]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_PITCH"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_PITCH"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[25]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_ROLL"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_ROLL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[24]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_YAW"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_YAW"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[11]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "FUNCTION_REWARD"
+	 origin:  "Asgardus_Challenge/SIMSTATE/FUNCTION_REWARD"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[12]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "OFFSET_LATERAL"
+	 origin:  "Asgardus_Challenge/SIMSTATE/OFFSET_LATERAL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[6]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "POS_X"
+	 origin:  "Asgardus_Challenge/VEL/POS_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[10]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "POS_Y"
+	 origin:  "Asgardus_Challenge/ACC/POS_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[26]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "SIMULATION_STATE{Occurence1}"
+	 origin:  "Asgardus_Challenge/IC/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[13]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "SIMULATION_STATE{Occurence2}"
+	 origin:  "Asgardus_Challenge/SIMSTATE/SIMULATION_STATE"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[30]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_FL_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_FL_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[31]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_FR_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_FR_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[32]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_RL_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_RL_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[33]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_RR_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_RR_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_X"
+	 origin:  "Asgardus_Challenge/VEL/VEL_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[4]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_Y"
+	 origin:  "Asgardus_Challenge/VEL/VEL_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[5]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_Z"
+	 origin:  "Asgardus_Challenge/VEL/VEL_Z"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[34]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_FL"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_FL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[35]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_FR"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_FR"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[36]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_RL"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_RL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[37]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_RR"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_RR"
+	 flags:   READONLY
+	}
+
+
+endgroup -- "Model Root"
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+-- No Stateflow chart within the model.
+
+
+-- ******** Labels ************************************************************
+
+group "Labels"
+
+	p_0_Asgardus_Challenge_real_T_0[7]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_X"
+	 origin:  "Asgardus_Challenge/ACC/ACC_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[8]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_Y"
+	 origin:  "Asgardus_Challenge/ACC/ACC_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[9]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_Z"
+	 origin:  "Asgardus_Challenge/ACC/ACC_Z"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[23]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_PITCH"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_PITCH"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[25]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_ROLL"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_ROLL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[24]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_YAW"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_YAW"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[11]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "FUNCTION_REWARD"
+	 origin:  "Asgardus_Challenge/SIMSTATE/FUNCTION_REWARD"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[12]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "OFFSET_LATERAL"
+	 origin:  "Asgardus_Challenge/SIMSTATE/OFFSET_LATERAL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[6]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "POS_X"
+	 origin:  "Asgardus_Challenge/VEL/POS_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[10]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "POS_Y"
+	 origin:  "Asgardus_Challenge/ACC/POS_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[26]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "SIMULATION_STATE{Occurence1}"
+	 origin:  "Asgardus_Challenge/IC/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[13]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "SIMULATION_STATE{Occurence2}"
+	 origin:  "Asgardus_Challenge/SIMSTATE/SIMULATION_STATE"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[30]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_FL_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_FL_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[31]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_FR_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_FR_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[32]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_RL_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_RL_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[33]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_RR_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_RR_ACT"
+	 flags:   READONLY
+	}
+	-- Skipping label "Torque_1"
+
+	-- Skipping label "Torque_2"
+
+	p_0_Asgardus_Challenge_real_T_0[47]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Torque_3"
+	 origin:  "Asgardus_Challenge/Control Algorithm/From4/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[47]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Torque_4"
+	 origin:  "Asgardus_Challenge/Control Algorithm/From5/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_X"
+	 origin:  "Asgardus_Challenge/VEL/VEL_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[4]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_Y"
+	 origin:  "Asgardus_Challenge/VEL/VEL_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[5]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_Z"
+	 origin:  "Asgardus_Challenge/VEL/VEL_Z"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[34]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_FL"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_FL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[35]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_FR"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_FR"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[36]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_RL"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_RL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[37]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_RR"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_RR"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[29]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "beta"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Trigonometric\nFunction/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[47]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "cmd_Tx"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Discrete PID Controller1/y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[12]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "offset"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/offset/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[48]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "offset_error"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract2/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[56]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "steer"
+	 origin:  "Asgardus_Challenge/Control Algorithm/From6/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[20]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "steer_c"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Rate Limiter/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[39]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "velocity_error"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract1/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "vx{Occurence1}"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/vel_x/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "vx{Occurence2}"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/From1/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "vx{Occurence3}"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/vx/Out1"
+	 flags:   READONLY
+	}
+
+endgroup
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+
+-- ******** User variables from model_usr.trc *********************************
+
+-- RTI_USR_TRC_BEGIN
+
+-- No user file Asgardus_Challenge_usr.trc found.
+
+-- RTI_USR_TRC_END
+
+-- ******** EESPort States Variables ******************************************
+group "XIL API"
+{ 
+  flags: COLLAPSED
+}
+
+  group "EESPort"
+  {  
+    flags: COLLAPSED
+  }
+
+    p_xilapi_eesport_activeerrorset_uint32_T
+    {
+      type:    uint(32)*
+      alias:   "Active ErrorSet"
+      desc:    "Index of active ErrorSet or 0 if no ErrorSet is active."
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 4294967295 >
+    }
+
+    p_xilapi_eesport_erroractivated_uint32_T
+    {
+      type:    uint(32)*
+      alias:   "Error Activated"
+      desc:    "0 - no error is activated on hardware, 1 - at least one error is activated on hardware."  
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 1 >
+    }
+
+    p_xilapi_eesport_errorswitching_uint32_T
+    {
+      type:    uint(32)*
+      alias:   "Error Switching"
+      desc:    "0 - no switching operation running on hardware, 1 -  switching operation running on hardware."
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 1 >
+    }
+
+    xilapi_eesport_flags_uint32_T
+    {
+      type:    uint(32)
+      alias:   "Flags"
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 4294967295 >
+    }
+
+    xilapi_eesport_trigger_uint32_T
+    {
+      type:    uint(32)
+      alias:   "Trigger"
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 4294967295 >
+    }
+
+    endgroup -- "EESPort"
+
+endgroup -- "XILAPI"
+
+
+
+-- ******** [EOF] *************************************************************
+

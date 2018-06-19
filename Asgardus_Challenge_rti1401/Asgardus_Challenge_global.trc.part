@@ -1,0 +1,274 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+-- No Stateflow chart within the model.
+
+
+-- ******** Labels ************************************************************
+
+group "Labels"
+
+	p_0_Asgardus_Challenge_real_T_0[7]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_X"
+	 origin:  "Asgardus_Challenge/ACC/ACC_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[8]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_Y"
+	 origin:  "Asgardus_Challenge/ACC/ACC_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[9]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ACC_Z"
+	 origin:  "Asgardus_Challenge/ACC/ACC_Z"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[23]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_PITCH"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_PITCH"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[25]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_ROLL"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_ROLL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[24]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ANGRATE_YAW"
+	 origin:  "Asgardus_Challenge/ANGRATE/ANGRATE_YAW"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[11]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "FUNCTION_REWARD"
+	 origin:  "Asgardus_Challenge/SIMSTATE/FUNCTION_REWARD"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[12]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "OFFSET_LATERAL"
+	 origin:  "Asgardus_Challenge/SIMSTATE/OFFSET_LATERAL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[6]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "POS_X"
+	 origin:  "Asgardus_Challenge/VEL/POS_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[10]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "POS_Y"
+	 origin:  "Asgardus_Challenge/ACC/POS_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[26]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "SIMULATION_STATE{Occurence1}"
+	 origin:  "Asgardus_Challenge/IC/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[13]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "SIMULATION_STATE{Occurence2}"
+	 origin:  "Asgardus_Challenge/SIMSTATE/SIMULATION_STATE"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[30]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_FL_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_FL_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[31]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_FR_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_FR_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[32]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_RL_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_RL_ACT"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[33]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "TORQUE_RR_ACT"
+	 origin:  "Asgardus_Challenge/TORQUE_ACT/TORQUE_RR_ACT"
+	 flags:   READONLY
+	}
+	-- Skipping label "Torque_1"
+
+	-- Skipping label "Torque_2"
+
+	p_0_Asgardus_Challenge_real_T_0[47]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Torque_3"
+	 origin:  "Asgardus_Challenge/Control Algorithm/From4/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[47]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Torque_4"
+	 origin:  "Asgardus_Challenge/Control Algorithm/From5/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_X"
+	 origin:  "Asgardus_Challenge/VEL/VEL_X"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[4]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_Y"
+	 origin:  "Asgardus_Challenge/VEL/VEL_Y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[5]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "VEL_Z"
+	 origin:  "Asgardus_Challenge/VEL/VEL_Z"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[34]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_FL"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_FL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[35]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_FR"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_FR"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[36]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_RL"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_RL"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[37]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "WHEELSPEED_RR"
+	 origin:  "Asgardus_Challenge/WHEELSPEED/WHEELSPEED_RR"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[29]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "beta"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Trigonometric\nFunction/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[47]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "cmd_Tx"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Discrete PID Controller1/y"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[12]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "offset"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/offset/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[48]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "offset_error"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract2/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[56]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "steer"
+	 origin:  "Asgardus_Challenge/Control Algorithm/From6/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[20]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "steer_c"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Rate Limiter/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[39]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "velocity_error"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract1/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "vx{Occurence1}"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/vel_x/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "vx{Occurence2}"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/From1/Out1"
+	 flags:   READONLY
+	}
+	p_0_Asgardus_Challenge_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "vx{Occurence3}"
+	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/vx/Out1"
+	 flags:   READONLY
+	}
+
+endgroup
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

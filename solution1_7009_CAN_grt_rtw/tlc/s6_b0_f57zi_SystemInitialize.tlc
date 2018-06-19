@@ -1,0 +1,34 @@
+%implements s6_b0_f57zi_SystemInitialize "C"
+
+%function SystemInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+/* InitializeConditions for UnitDelay: '<S4>/Unit Delay' */
+solution1_7009_CAN_DW.UnitDelay_DSTATE = solution1_7009_CAN_P.UnitDelay_InitialCondition;
+/* InitializeConditions for RateLimiter: '<S4>/Rate Limiter' */
+solution1_7009_CAN_DW.PrevY = solution1_7009_CAN_P.RateLimiter_IC;
+/* SystemInitialize for Atomic SubSystem: '<S4>/Control' */
+/* InitializeConditions for Delay: '<S32>/UD' */
+solution1_7009_CAN_DW.UD_DSTATE = solution1_7009_CAN_P.UD_InitialCondition;
+/* InitializeConditions for DiscreteIntegrator: '<S29>/Integrator' */
+solution1_7009_CAN_DW.Integrator_DSTATE = solution1_7009_CAN_P.Integrator_IC;
+/* InitializeConditions for DiscreteIntegrator: '<S30>/Filter' */
+solution1_7009_CAN_DW.Filter_DSTATE = solution1_7009_CAN_P.Filter_IC;
+/* InitializeConditions for DiscreteIntegrator: '<S30>/Integrator' */
+solution1_7009_CAN_DW.Integrator_DSTATE_g = solution1_7009_CAN_P.Integrator_IC_k;
+/* End of SystemInitialize for SubSystem: '<S4>/Control' */
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function SystemInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%endfunction
