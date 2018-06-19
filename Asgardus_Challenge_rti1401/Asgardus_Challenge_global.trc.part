@@ -214,14 +214,14 @@ group "Labels"
 	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/offset/Out1"
 	 flags:   READONLY
 	}
-	p_0_Asgardus_Challenge_real_T_0[48]
+	p_0_Asgardus_Challenge_real_T_0[50]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "offset_error"
 	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract2/Out1"
 	 flags:   READONLY
 	}
-	p_0_Asgardus_Challenge_real_T_0[56]
+	p_0_Asgardus_Challenge_real_T_0[58]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "steer"

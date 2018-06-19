@@ -7,9 +7,9 @@
  *
  * Code generation for model "Asgardus_Challenge".
  *
- * Model version              : 1.17
+ * Model version              : 1.19
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Tue Jun 19 13:13:08 2018
+ * C source code generated on : Tue Jun 19 14:46:54 2018
  *
  * Target selection: rti1401.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -114,6 +114,8 @@ typedef struct {
   real_T Integrator;                   /* '<S32>/Integrator' */
   real_T ProportionalGain;             /* '<S32>/Proportional Gain' */
   real_T Sum;                          /* '<S32>/Sum' */
+  real_T Switch2;                      /* '<S25>/Switch2' */
+  real_T Switch3;                      /* '<S25>/Switch3' */
   real_T offset_error;                 /* '<S25>/Subtract2' */
   real_T DerivativeGain_f;             /* '<S33>/Derivative Gain' */
   real_T Filter;                       /* '<S33>/Filter' */
@@ -137,6 +139,13 @@ typedef struct {
   boolean_T max_relop_o;               /* '<S61>/max_relop' */
   boolean_T conjunction_n;             /* '<S61>/conjunction' */
   boolean_T LogicalOperator_n;         /* '<S51>/Logical Operator' */
+  boolean_T min_relop_a;               /* '<S58>/min_relop' */
+  boolean_T max_relop_l;               /* '<S58>/max_relop' */
+  boolean_T conjunction_p;             /* '<S58>/conjunction' */
+  boolean_T min_relop_n;               /* '<S59>/min_relop' */
+  boolean_T max_relop_dn;              /* '<S59>/max_relop' */
+  boolean_T conjunction_d;             /* '<S59>/conjunction' */
+  boolean_T LogicalOperator_i;         /* '<S50>/Logical Operator' */
   boolean_T Compare;                   /* '<S40>/Compare' */
   boolean_T min_relop_l;               /* '<S52>/min_relop' */
   boolean_T max_relop_f;               /* '<S52>/max_relop' */
@@ -144,21 +153,14 @@ typedef struct {
   boolean_T min_relop_d;               /* '<S53>/min_relop' */
   boolean_T max_relop_i;               /* '<S53>/max_relop' */
   boolean_T conjunction_c;             /* '<S53>/conjunction' */
-  boolean_T LogicalOperator_i;         /* '<S47>/Logical Operator' */
+  boolean_T LogicalOperator_ib;        /* '<S47>/Logical Operator' */
   boolean_T min_relop_i;               /* '<S56>/min_relop' */
   boolean_T max_relop_h;               /* '<S56>/max_relop' */
   boolean_T conjunction_hp;            /* '<S56>/conjunction' */
-  boolean_T min_relop_n;               /* '<S57>/min_relop' */
+  boolean_T min_relop_nf;              /* '<S57>/min_relop' */
   boolean_T max_relop_n;               /* '<S57>/max_relop' */
   boolean_T conjunction_g;             /* '<S57>/conjunction' */
   boolean_T LogicalOperator_o;         /* '<S49>/Logical Operator' */
-  boolean_T min_relop_a;               /* '<S58>/min_relop' */
-  boolean_T max_relop_l;               /* '<S58>/max_relop' */
-  boolean_T conjunction_p;             /* '<S58>/conjunction' */
-  boolean_T min_relop_nf;              /* '<S59>/min_relop' */
-  boolean_T max_relop_dn;              /* '<S59>/max_relop' */
-  boolean_T conjunction_d;             /* '<S59>/conjunction' */
-  boolean_T LogicalOperator_ie;        /* '<S50>/Logical Operator' */
   boolean_T LogicalOperator1;          /* '<S25>/Logical Operator1' */
 } B_Asgardus_Challenge_T;
 
@@ -213,8 +215,17 @@ struct P_Asgardus_Challenge_T_ {
   real_T Constant_Value;               /* Expression: 18
                                         * Referenced by: '<S25>/Constant'
                                         */
-  real_T Constant1_Value;              /* Expression: 15
+  real_T Constant1_Value;              /* Expression: 14
                                         * Referenced by: '<S25>/Constant1'
+                                        */
+  real_T Constant2_Value;              /* Expression: 3
+                                        * Referenced by: '<S25>/Constant2'
+                                        */
+  real_T Constant3_Value;              /* Expression: 0
+                                        * Referenced by: '<S25>/Constant3'
+                                        */
+  real_T Constant4_Value;              /* Expression: -3
+                                        * Referenced by: '<S25>/Constant4'
                                         */
   real_T TSamp_WtEt;                   /* Computed Parameter: TSamp_WtEt
                                         * Referenced by: '<S35>/TSamp'
@@ -227,9 +238,6 @@ struct P_Asgardus_Challenge_T_ {
                                         */
   real_T Integrator_IC;                /* Expression: InitialConditionForIntegrator
                                         * Referenced by: '<S32>/Integrator'
-                                        */
-  real_T Constant3_Value;              /* Expression: 0
-                                        * Referenced by: '<S25>/Constant3'
                                         */
   real_T Filter_gainval;               /* Computed Parameter: Filter_gainval
                                         * Referenced by: '<S33>/Filter'
@@ -258,7 +266,7 @@ struct P_Asgardus_Challenge_T_ {
   real_T Constant3_Value_k;            /* Expression: -6
                                         * Referenced by: '<S48>/Constant3'
                                         */
-  real_T Constant2_Value;              /* Expression: 106
+  real_T Constant2_Value_p;            /* Expression: 106
                                         * Referenced by: '<S48>/Constant2'
                                         */
   real_T Constant1_Value_d;            /* Expression: 21
@@ -272,6 +280,18 @@ struct P_Asgardus_Challenge_T_ {
                                         */
   real_T Constant2_Value_d;            /* Expression: 106
                                         * Referenced by: '<S51>/Constant2'
+                                        */
+  real_T Constant1_Value_e;            /* Expression: 9
+                                        * Referenced by: '<S50>/Constant1'
+                                        */
+  real_T Constant_Value_h;             /* Expression: 50
+                                        * Referenced by: '<S50>/Constant'
+                                        */
+  real_T Constant3_Value_k3;           /* Expression: 100
+                                        * Referenced by: '<S50>/Constant3'
+                                        */
+  real_T Constant2_Value_h;            /* Expression: 182
+                                        * Referenced by: '<S50>/Constant2'
                                         */
   real_T RateLimiter_RisingLim;        /* Computed Parameter: RateLimiter_RisingLim
                                         * Referenced by: '<S4>/Rate Limiter'
@@ -314,18 +334,6 @@ struct P_Asgardus_Challenge_T_ {
                                         */
   real_T Constant2_Value_n;            /* Expression: 176
                                         * Referenced by: '<S49>/Constant2'
-                                        */
-  real_T Constant1_Value_e;            /* Expression: 9
-                                        * Referenced by: '<S50>/Constant1'
-                                        */
-  real_T Constant_Value_h;             /* Expression: 50
-                                        * Referenced by: '<S50>/Constant'
-                                        */
-  real_T Constant3_Value_k3;           /* Expression: 100
-                                        * Referenced by: '<S50>/Constant3'
-                                        */
-  real_T Constant2_Value_h;            /* Expression: 182
-                                        * Referenced by: '<S50>/Constant2'
                                         */
   uint32_T UD_DelayLength;             /* Computed Parameter: UD_DelayLength
                                         * Referenced by: '<S35>/UD'

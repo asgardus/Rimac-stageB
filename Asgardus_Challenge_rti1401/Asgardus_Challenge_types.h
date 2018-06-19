@@ -7,9 +7,9 @@
  *
  * Code generation for model "Asgardus_Challenge".
  *
- * Model version              : 1.17
+ * Model version              : 1.19
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Tue Jun 19 13:13:08 2018
+ * C source code generated on : Tue Jun 19 14:46:54 2018
  *
  * Target selection: rti1401.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Asgardus_Challenge".
  *
- * Model version              : 1.17
+ * Model version              : 1.19
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Tue Jun 19 13:13:08 2018
+ * C source code generated on : Tue Jun 19 14:46:54 2018
  *
  * Target selection: rti1401.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -68,10 +68,25 @@ P_Asgardus_Challenge_T Asgardus_Challenge_P = {
    */
   18.0,
 
-  /* Expression: 15
+  /* Expression: 14
    * Referenced by: '<S25>/Constant1'
    */
-  15.0,
+  14.0,
+
+  /* Expression: 3
+   * Referenced by: '<S25>/Constant2'
+   */
+  3.0,
+
+  /* Expression: 0
+   * Referenced by: '<S25>/Constant3'
+   */
+  0.0,
+
+  /* Expression: -3
+   * Referenced by: '<S25>/Constant4'
+   */
+  -3.0,
 
   /* Computed Parameter: TSamp_WtEt
    * Referenced by: '<S35>/TSamp'
@@ -90,11 +105,6 @@ P_Asgardus_Challenge_T Asgardus_Challenge_P = {
 
   /* Expression: InitialConditionForIntegrator
    * Referenced by: '<S32>/Integrator'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S25>/Constant3'
    */
   0.0,
 
@@ -168,6 +178,26 @@ P_Asgardus_Challenge_T Asgardus_Challenge_P = {
    */
   106.0,
 
+  /* Expression: 9
+   * Referenced by: '<S50>/Constant1'
+   */
+  9.0,
+
+  /* Expression: 50
+   * Referenced by: '<S50>/Constant'
+   */
+  50.0,
+
+  /* Expression: 100
+   * Referenced by: '<S50>/Constant3'
+   */
+  100.0,
+
+  /* Expression: 182
+   * Referenced by: '<S50>/Constant2'
+   */
+  182.0,
+
   /* Computed Parameter: RateLimiter_RisingLim
    * Referenced by: '<S4>/Rate Limiter'
    */
@@ -237,26 +267,6 @@ P_Asgardus_Challenge_T Asgardus_Challenge_P = {
    * Referenced by: '<S49>/Constant2'
    */
   176.0,
-
-  /* Expression: 9
-   * Referenced by: '<S50>/Constant1'
-   */
-  9.0,
-
-  /* Expression: 50
-   * Referenced by: '<S50>/Constant'
-   */
-  50.0,
-
-  /* Expression: 100
-   * Referenced by: '<S50>/Constant3'
-   */
-  100.0,
-
-  /* Expression: 182
-   * Referenced by: '<S50>/Constant2'
-   */
-  182.0,
 
   /* Computed Parameter: UD_DelayLength
    * Referenced by: '<S35>/UD'

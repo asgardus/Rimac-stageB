@@ -3,7 +3,7 @@
 --  Trace file: Asgardus_Challenge.trc
 --
 --  RTI1401 7.9 (02-Nov-2017)
---  Tue Jun 19 13:13:08 2018
+--  Tue Jun 19 14:46:54 2018
 --
 --  Copyright 2018, dSPACE GmbH. All rights reserved.
 --
@@ -26,7 +26,7 @@
 
 _genname     "RTI"
 _genversion  "7.9"
-_gendate     "06/19/2018 13:13:11"
+_gendate     "06/19/2018 14:46:57"
 _description ""
 _author      "RTI1401 7.9 (02-Nov-2017)"
 _model       "Asgardus_Challenge"
@@ -473,7 +473,7 @@ group "Model Root"
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Asgardus_Challenge_real_T_0[32]
+		p_1_Asgardus_Challenge_real_T_0[38]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
@@ -671,7 +671,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Asgardus_Challenge_real_T_0[19]
+			p_1_Asgardus_Challenge_real_T_0[21]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -860,7 +860,7 @@ group "Model Root"
 		{
 		 block: "From"
 		}
-			p_0_Asgardus_Challenge_real_T_0[56]
+			p_0_Asgardus_Challenge_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -944,7 +944,7 @@ group "Model Root"
 		{
 		 block: "From"
 		}
-			p_0_Asgardus_Challenge_real_T_0[56]
+			p_0_Asgardus_Challenge_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1013,7 +1013,7 @@ group "Model Root"
 		{
 		 block: "Goto"
 		}
-			p_0_Asgardus_Challenge_real_T_0[56]
+			p_0_Asgardus_Challenge_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "In1"
@@ -1118,7 +1118,7 @@ group "Model Root"
 		{
 		 block: "Goto"
 		}
-			p_0_Asgardus_Challenge_real_T_0[56]
+			p_0_Asgardus_Challenge_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "In1"
@@ -1326,19 +1326,19 @@ group "Model Root"
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_Asgardus_Challenge_real_T_0[29]
+			p_1_Asgardus_Challenge_real_T_0[35]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "RisingSlewLimit"
 			 flags:   PARAM
 			}
-			p_1_Asgardus_Challenge_real_T_0[30]
+			p_1_Asgardus_Challenge_real_T_0[36]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "FallingSlewLimit"
 			 flags:   PARAM
 			}
-			p_1_Asgardus_Challenge_real_T_0[31]
+			p_1_Asgardus_Challenge_real_T_0[37]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1366,7 +1366,7 @@ group "Model Root"
   
 		group "Control" -- subsystem-group
 
-			p_0_Asgardus_Challenge_real_T_0[56]
+			p_0_Asgardus_Challenge_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "cmd_steer"
@@ -1455,7 +1455,7 @@ group "Model Root"
 			{
 			 block: "Demux"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[21]
+				p_0_Asgardus_Challenge_boolean_T_1[28]
 				{
 				 type:    uint(8)*
 				 alias:   "Out1"
@@ -1479,7 +1479,7 @@ group "Model Root"
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
 				}
-				p_0_Asgardus_Challenge_boolean_T_1[35]
+				p_0_Asgardus_Challenge_boolean_T_1[20]
 				{
 				 type:    uint(8)*
 				 alias:   "Out4"
@@ -1487,7 +1487,7 @@ group "Model Root"
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
 				}
-				p_0_Asgardus_Challenge_boolean_T_1[28]
+				p_0_Asgardus_Challenge_boolean_T_1[35]
 				{
 				 type:    uint(8)*
 				 alias:   "Out5"
@@ -1512,6 +1512,22 @@ group "Model Root"
 
 
 			endgroup -- block-group "From1"
+
+			group "From10" -- block-group
+			{
+			 block: "From"
+			}
+				p_0_Asgardus_Challenge_boolean_T_1[20]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "From10"
 
 			group "From2" -- block-group
 			{
@@ -1559,7 +1575,7 @@ group "Model Root"
 			{
 			 block: "From"
 			}
-				p_0_Asgardus_Challenge_real_T_0[56]
+				p_0_Asgardus_Challenge_real_T_0[58]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -1573,7 +1589,7 @@ group "Model Root"
 			{
 			 block: "From"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[21]
+				p_0_Asgardus_Challenge_boolean_T_1[28]
 				{
 				 type:    uint(8)*
 				 alias:   "Out1"
@@ -1621,7 +1637,7 @@ group "Model Root"
 			{
 			 block: "From"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[35]
+				p_0_Asgardus_Challenge_boolean_T_1[20]
 				{
 				 type:    uint(8)*
 				 alias:   "Out1"
@@ -1637,7 +1653,7 @@ group "Model Root"
 			{
 			 block: "From"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[28]
+				p_0_Asgardus_Challenge_boolean_T_1[35]
 				{
 				 type:    uint(8)*
 				 alias:   "Out1"
@@ -1711,7 +1727,7 @@ group "Model Root"
 			{
 			 block: "Goto"
 			}
-				p_0_Asgardus_Challenge_real_T_0[56]
+				p_0_Asgardus_Challenge_real_T_0[58]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "In1"
@@ -1786,7 +1802,7 @@ group "Model Root"
 			{
 			 block: "Goto"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[21]
+				p_0_Asgardus_Challenge_boolean_T_1[28]
 				{
 				 type:    uint(8)*
 				 alias:   "In1"
@@ -1837,7 +1853,7 @@ group "Model Root"
 			{
 			 block: "Goto"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[35]
+				p_0_Asgardus_Challenge_boolean_T_1[20]
 				{
 				 type:    uint(8)*
 				 alias:   "In1"
@@ -1854,7 +1870,7 @@ group "Model Root"
 			{
 			 block: "Goto"
 			}
-				p_0_Asgardus_Challenge_boolean_T_1[28]
+				p_0_Asgardus_Challenge_boolean_T_1[35]
 				{
 				 type:    uint(8)*
 				 alias:   "In1"
@@ -1883,7 +1899,7 @@ group "Model Root"
 				 alias:   "TxRR"
 				 flags:   OUTPUT|READONLY
 				}
-				p_0_Asgardus_Challenge_real_T_0[56]
+				p_0_Asgardus_Challenge_real_T_0[58]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "steer"
@@ -1951,6 +1967,22 @@ group "Model Root"
 
 				endgroup -- block-group "S2"
 
+				group "T2" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[20]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "T2"
+
 				group "Constant" -- block-group
 				{
 				 block: "Constant"
@@ -1981,12 +2013,27 @@ group "Model Root"
 
 				endgroup -- block-group "Constant1"
 
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
 				group "Constant3" -- block-group
 				{
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[14]
+					p_1_Asgardus_Challenge_real_T_0[11]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1995,6 +2042,21 @@ group "Model Root"
 
 
 				endgroup -- block-group "Constant3"
+
+				group "Constant4" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[12]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant4"
 
 				group "Logical\nOperator1" -- block-group
 				{
@@ -2030,7 +2092,7 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Asgardus_Challenge_real_T_0[48]
+					p_0_Asgardus_Challenge_real_T_0[50]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
@@ -2053,6 +2115,34 @@ group "Model Root"
 
 
 				endgroup -- block-group "Switch1"
+
+				group "Switch2" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_Asgardus_Challenge_real_T_0[48]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch2"
+
+				group "Switch3" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_Asgardus_Challenge_real_T_0[49]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch3"
 
   
   
@@ -2108,13 +2198,13 @@ group "Model Root"
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
 						}
-						p_1_Asgardus_Challenge_real_T_0[12]
+						p_1_Asgardus_Challenge_real_T_0[15]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "gainval"
 						 flags:   PARAM
 						}
-						p_1_Asgardus_Challenge_real_T_0[13]
+						p_1_Asgardus_Challenge_real_T_0[16]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "InitialCondition"
@@ -2296,7 +2386,7 @@ group "Model Root"
 							 alias:   "Out1"
 							 flags:   OUTPUT|READONLY
 							}
-							p_1_Asgardus_Challenge_real_T_0[10]
+							p_1_Asgardus_Challenge_real_T_0[13]
 							{
 							 type:    flt(64,IEEE)*
 							 alias:   "WtEt"
@@ -2322,7 +2412,7 @@ group "Model Root"
 							 alias:   "DelayLength"
 							 flags:   PARAM
 							}
-							p_1_Asgardus_Challenge_real_T_0[11]
+							p_1_Asgardus_Challenge_real_T_0[14]
 							{
 							 type:    flt(64,IEEE)*
 							 alias:   "InitialCondition"
@@ -2342,7 +2432,7 @@ group "Model Root"
   
 				group "Discrete PID Controller2" -- subsystem-group
 
-					p_0_Asgardus_Challenge_real_T_0[56]
+					p_0_Asgardus_Challenge_real_T_0[58]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
@@ -2378,7 +2468,7 @@ group "Model Root"
 					{
 					 block: "Inport"
 					}
-						p_0_Asgardus_Challenge_real_T_0[48]
+						p_0_Asgardus_Challenge_real_T_0[50]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2392,33 +2482,7 @@ group "Model Root"
 					{
 					 block: "DiscreteIntegrator"
 					}
-						p_0_Asgardus_Challenge_real_T_0[50]
-						{
-						 type:    flt(64,IEEE)*
-						 alias:   "Out1"
-						 flags:   OUTPUT|READONLY
-						}
-						p_1_Asgardus_Challenge_real_T_0[15]
-						{
-						 type:    flt(64,IEEE)*
-						 alias:   "gainval"
-						 flags:   PARAM
-						}
-						p_1_Asgardus_Challenge_real_T_0[16]
-						{
-						 type:    flt(64,IEEE)*
-						 alias:   "InitialCondition"
-						 flags:   PARAM
-						}
-
-
-					endgroup -- block-group "Filter"
-
-					group "Integrator" -- block-group
-					{
-					 block: "DiscreteIntegrator"
-					}
-						p_0_Asgardus_Challenge_real_T_0[54]
+						p_0_Asgardus_Challenge_real_T_0[52]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2438,13 +2502,39 @@ group "Model Root"
 						}
 
 
+					endgroup -- block-group "Filter"
+
+					group "Integrator" -- block-group
+					{
+					 block: "DiscreteIntegrator"
+					}
+						p_0_Asgardus_Challenge_real_T_0[56]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						p_1_Asgardus_Challenge_real_T_0[19]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "gainval"
+						 flags:   PARAM
+						}
+						p_1_Asgardus_Challenge_real_T_0[20]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "InitialCondition"
+						 flags:   PARAM
+						}
+
+
 					endgroup -- block-group "Integrator"
 
 					group "Derivative Gain" -- block-group
 					{
 					 block: "Gain"
 					}
-						p_0_Asgardus_Challenge_real_T_0[49]
+						p_0_Asgardus_Challenge_real_T_0[51]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2471,7 +2561,7 @@ group "Model Root"
 					{
 					 block: "Gain"
 					}
-						p_0_Asgardus_Challenge_real_T_0[52]
+						p_0_Asgardus_Challenge_real_T_0[54]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2498,7 +2588,7 @@ group "Model Root"
 					{
 					 block: "Gain"
 					}
-						p_0_Asgardus_Challenge_real_T_0[53]
+						p_0_Asgardus_Challenge_real_T_0[55]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2525,7 +2615,7 @@ group "Model Root"
 					{
 					 block: "Gain"
 					}
-						p_0_Asgardus_Challenge_real_T_0[55]
+						p_0_Asgardus_Challenge_real_T_0[57]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2552,7 +2642,7 @@ group "Model Root"
 					{
 					 block: "Sum"
 					}
-						p_0_Asgardus_Challenge_real_T_0[56]
+						p_0_Asgardus_Challenge_real_T_0[58]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2566,7 +2656,7 @@ group "Model Root"
 					{
 					 block: "Sum"
 					}
-						p_0_Asgardus_Challenge_real_T_0[51]
+						p_0_Asgardus_Challenge_real_T_0[53]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2594,7 +2684,7 @@ group "Model Root"
 				 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/offset/Out1"
 				 flags:   READONLY
 				}
-				p_0_Asgardus_Challenge_real_T_0[48]
+				p_0_Asgardus_Challenge_real_T_0[50]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "offset_error"
@@ -2651,7 +2741,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Asgardus_Challenge_real_T_0[33]
+				p_1_Asgardus_Challenge_real_T_0[39]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2666,7 +2756,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Asgardus_Challenge_real_T_0[34]
+				p_1_Asgardus_Challenge_real_T_0[40]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2709,7 +2799,7 @@ group "Model Root"
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Asgardus_Challenge_real_T_0[20]
+				p_1_Asgardus_Challenge_real_T_0[22]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "InitialCondition"
@@ -2723,7 +2813,7 @@ group "Model Root"
   
 			group "Compare\nTo Constant" -- subsystem-group
 
-				p_0_Asgardus_Challenge_boolean_T_1[14]
+				p_0_Asgardus_Challenge_boolean_T_1[21]
 				{
 				 type:    uint(8)*
 				 alias:   "y"
@@ -2774,7 +2864,7 @@ group "Model Root"
 				{
 				 block: "RelationalOperator"
 				}
-					p_0_Asgardus_Challenge_boolean_T_1[14]
+					p_0_Asgardus_Challenge_boolean_T_1[21]
 					{
 					 type:    uint(8)*
 					 alias:   "Out1"
@@ -2796,7 +2886,7 @@ group "Model Root"
   
 		group "Track Segment Identifier" -- subsystem-group
 
-			p_0_Asgardus_Challenge_boolean_T_1[21]
+			p_0_Asgardus_Challenge_boolean_T_1[28]
 			{
 			 type:    uint(8)*
 			 alias:   "S1"
@@ -2820,7 +2910,7 @@ group "Model Root"
 			 bitmask: 0x01
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Asgardus_Challenge_boolean_T_1[35]
+			p_0_Asgardus_Challenge_boolean_T_1[20]
 			{
 			 type:    uint(8)*
 			 alias:   "T2"
@@ -2828,7 +2918,7 @@ group "Model Root"
 			 bitmask: 0x01
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Asgardus_Challenge_boolean_T_1[28]
+			p_0_Asgardus_Challenge_boolean_T_1[35]
 			{
 			 type:    uint(8)*
 			 alias:   "S3"
@@ -3040,7 +3130,7 @@ group "Model Root"
   
 			group "1 if in first straight" -- subsystem-group
 
-				p_0_Asgardus_Challenge_boolean_T_1[21]
+				p_0_Asgardus_Challenge_boolean_T_1[28]
 				{
 				 type:    uint(8)*
 				 alias:   "check straight 1"
@@ -3083,7 +3173,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[36]
+					p_1_Asgardus_Challenge_real_T_0[42]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3098,7 +3188,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[35]
+					p_1_Asgardus_Challenge_real_T_0[41]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3113,7 +3203,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[38]
+					p_1_Asgardus_Challenge_real_T_0[44]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3128,7 +3218,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[37]
+					p_1_Asgardus_Challenge_real_T_0[43]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3142,7 +3232,7 @@ group "Model Root"
 				{
 				 block: "Logic"
 				}
-					p_0_Asgardus_Challenge_boolean_T_1[21]
+					p_0_Asgardus_Challenge_boolean_T_1[28]
 					{
 					 type:    uint(8)*
 					 alias:   "Out1"
@@ -3161,7 +3251,7 @@ group "Model Root"
 				 desc:  "min < u < max"
 				}
 
-					p_0_Asgardus_Challenge_boolean_T_1[17]
+					p_0_Asgardus_Challenge_boolean_T_1[24]
 					{
 					 type:    uint(8)*
 					 alias:   "out"
@@ -3207,7 +3297,7 @@ group "Model Root"
 					{
 					 block: "Assertion"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[17]
+						p_0_Asgardus_Challenge_boolean_T_1[24]
 						{
 						 type:    uint(8)*
 						 alias:   "In1"
@@ -3224,7 +3314,7 @@ group "Model Root"
 					{
 					 block: "Logic"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[17]
+						p_0_Asgardus_Challenge_boolean_T_1[24]
 						{
 						 type:    uint(8)*
 						 alias:   "Out1"
@@ -3240,7 +3330,7 @@ group "Model Root"
 					{
 					 block: "RelationalOperator"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[16]
+						p_0_Asgardus_Challenge_boolean_T_1[23]
 						{
 						 type:    uint(8)*
 						 alias:   "Out1"
@@ -3256,7 +3346,7 @@ group "Model Root"
 					{
 					 block: "RelationalOperator"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[15]
+						p_0_Asgardus_Challenge_boolean_T_1[22]
 						{
 						 type:    uint(8)*
 						 alias:   "Out1"
@@ -3278,7 +3368,7 @@ group "Model Root"
 				 desc:  "min < u < max"
 				}
 
-					p_0_Asgardus_Challenge_boolean_T_1[20]
+					p_0_Asgardus_Challenge_boolean_T_1[27]
 					{
 					 type:    uint(8)*
 					 alias:   "out"
@@ -3324,7 +3414,7 @@ group "Model Root"
 					{
 					 block: "Assertion"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[20]
+						p_0_Asgardus_Challenge_boolean_T_1[27]
 						{
 						 type:    uint(8)*
 						 alias:   "In1"
@@ -3341,7 +3431,7 @@ group "Model Root"
 					{
 					 block: "Logic"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[20]
+						p_0_Asgardus_Challenge_boolean_T_1[27]
 						{
 						 type:    uint(8)*
 						 alias:   "Out1"
@@ -3357,7 +3447,7 @@ group "Model Root"
 					{
 					 block: "RelationalOperator"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[19]
+						p_0_Asgardus_Challenge_boolean_T_1[26]
 						{
 						 type:    uint(8)*
 						 alias:   "Out1"
@@ -3373,7 +3463,7 @@ group "Model Root"
 					{
 					 block: "RelationalOperator"
 					}
-						p_0_Asgardus_Challenge_boolean_T_1[18]
+						p_0_Asgardus_Challenge_boolean_T_1[25]
 						{
 						 type:    uint(8)*
 						 alias:   "Out1"
@@ -3438,7 +3528,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[22]
+					p_1_Asgardus_Challenge_real_T_0[24]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3453,7 +3543,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[21]
+					p_1_Asgardus_Challenge_real_T_0[23]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3468,7 +3558,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[24]
+					p_1_Asgardus_Challenge_real_T_0[26]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3483,7 +3573,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[23]
+					p_1_Asgardus_Challenge_real_T_0[25]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3750,7 +3840,7 @@ group "Model Root"
   
 			group "1 if in last straight" -- subsystem-group
 
-				p_0_Asgardus_Challenge_boolean_T_1[28]
+				p_0_Asgardus_Challenge_boolean_T_1[35]
 				{
 				 type:    uint(8)*
 				 alias:   "check last straight"
@@ -3793,391 +3883,6 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[40]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Value"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Constant"
-
-				group "Constant1" -- block-group
-				{
-				 block: "Constant"
-				}
-					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[39]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Value"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Constant1"
-
-				group "Constant2" -- block-group
-				{
-				 block: "Constant"
-				}
-					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[42]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Value"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Constant2"
-
-				group "Constant3" -- block-group
-				{
-				 block: "Constant"
-				}
-					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[41]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Value"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Constant3"
-
-				group "Logical\nOperator" -- block-group
-				{
-				 block: "Logic"
-				}
-					p_0_Asgardus_Challenge_boolean_T_1[28]
-					{
-					 type:    uint(8)*
-					 alias:   "Out1"
-					 range:   < 0 ; 1 >
-					 bitmask: 0x01
-					 flags:   OUTPUT|READONLY
-					}
-
-
-				endgroup -- block-group "Logical\nOperator"
-
-  
-  
-				group "Check \nDynamic Range" -- subsystem-group
-				{
-				 desc:  "min < u < max"
-				}
-
-					p_0_Asgardus_Challenge_boolean_T_1[24]
-					{
-					 type:    uint(8)*
-					 alias:   "out"
-					 range:   < 0 ; 1 >
-					 bitmask: 0x01
-					 flags:   OUTPUT|READONLY
-					}
-
-
-					group "max" -- block-group
-					{
-					 block: "Inport"
-					}
-						-- Skipping output Out1
-
-
-					endgroup -- block-group "max"
-
-					group "min" -- block-group
-					{
-					 block: "Inport"
-					}
-						-- Skipping output Out1
-
-
-					endgroup -- block-group "min"
-
-					group "u" -- block-group
-					{
-					 block: "Inport"
-					}
-						p_0_Asgardus_Challenge_real_T_0[6]
-						{
-						 type:    flt(64,IEEE)*
-						 alias:   "Out1"
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "u"
-
-					group "Assertion" -- block-group
-					{
-					 block: "Assertion"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[24]
-						{
-						 type:    uint(8)*
-						 alias:   "In1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   READONLY
-						}
-
-
-
-					endgroup -- block-group "Assertion"
-
-					group "conjunction" -- block-group
-					{
-					 block: "Logic"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[24]
-						{
-						 type:    uint(8)*
-						 alias:   "Out1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "conjunction"
-
-					group "max_relop" -- block-group
-					{
-					 block: "RelationalOperator"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[23]
-						{
-						 type:    uint(8)*
-						 alias:   "Out1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "max_relop"
-
-					group "min_relop" -- block-group
-					{
-					 block: "RelationalOperator"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[22]
-						{
-						 type:    uint(8)*
-						 alias:   "Out1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "min_relop"
-
-
-
-				endgroup -- subsystem-group "Check \nDynamic Range"
-  
-  
-				group "Check \nDynamic Range1" -- subsystem-group
-				{
-				 desc:  "min < u < max"
-				}
-
-					p_0_Asgardus_Challenge_boolean_T_1[27]
-					{
-					 type:    uint(8)*
-					 alias:   "out"
-					 range:   < 0 ; 1 >
-					 bitmask: 0x01
-					 flags:   OUTPUT|READONLY
-					}
-
-
-					group "max" -- block-group
-					{
-					 block: "Inport"
-					}
-						-- Skipping output Out1
-
-
-					endgroup -- block-group "max"
-
-					group "min" -- block-group
-					{
-					 block: "Inport"
-					}
-						-- Skipping output Out1
-
-
-					endgroup -- block-group "min"
-
-					group "u" -- block-group
-					{
-					 block: "Inport"
-					}
-						p_0_Asgardus_Challenge_real_T_0[10]
-						{
-						 type:    flt(64,IEEE)*
-						 alias:   "Out1"
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "u"
-
-					group "Assertion" -- block-group
-					{
-					 block: "Assertion"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[27]
-						{
-						 type:    uint(8)*
-						 alias:   "In1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   READONLY
-						}
-
-
-
-					endgroup -- block-group "Assertion"
-
-					group "conjunction" -- block-group
-					{
-					 block: "Logic"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[27]
-						{
-						 type:    uint(8)*
-						 alias:   "Out1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "conjunction"
-
-					group "max_relop" -- block-group
-					{
-					 block: "RelationalOperator"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[26]
-						{
-						 type:    uint(8)*
-						 alias:   "Out1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "max_relop"
-
-					group "min_relop" -- block-group
-					{
-					 block: "RelationalOperator"
-					}
-						p_0_Asgardus_Challenge_boolean_T_1[25]
-						{
-						 type:    uint(8)*
-						 alias:   "Out1"
-						 range:   < 0 ; 1 >
-						 bitmask: 0x01
-						 flags:   OUTPUT|READONLY
-						}
-
-
-					endgroup -- block-group "min_relop"
-
-
-
-				endgroup -- subsystem-group "Check \nDynamic Range1"
-
-
-			endgroup -- subsystem-group "1 if in last straight"
-  
-  
-			group "1 if in second turn" -- subsystem-group
-
-				p_0_Asgardus_Challenge_boolean_T_1[35]
-				{
-				 type:    uint(8)*
-				 alias:   "check turn 2"
-				 range:   < 0 ; 1 >
-				 bitmask: 0x01
-				 flags:   OUTPUT|READONLY
-				}
-
-
-				group "X" -- block-group
-				{
-				 block: "Inport"
-				}
-					p_0_Asgardus_Challenge_real_T_0[6]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-
-				endgroup -- block-group "X"
-
-				group "Y" -- block-group
-				{
-				 block: "Inport"
-				}
-					p_0_Asgardus_Challenge_real_T_0[10]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-
-				endgroup -- block-group "Y"
-
-				group "Constant" -- block-group
-				{
-				 block: "Constant"
-				}
-					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[44]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Value"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Constant"
-
-				group "Constant1" -- block-group
-				{
-				 block: "Constant"
-				}
-					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[43]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Value"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Constant1"
-
-				group "Constant2" -- block-group
-				{
-				 block: "Constant"
-				}
-					-- Skipping output Out1
 					p_1_Asgardus_Challenge_real_T_0[46]
 					{
 					 type:    flt(64,IEEE)*
@@ -4186,6 +3891,36 @@ group "Model Root"
 					}
 
 
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[45]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[48]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
 				endgroup -- block-group "Constant2"
 
 				group "Constant3" -- block-group
@@ -4193,7 +3928,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[45]
+					p_1_Asgardus_Challenge_real_T_0[47]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -4455,6 +4190,361 @@ group "Model Root"
 				endgroup -- subsystem-group "Check \nDynamic Range1"
 
 
+			endgroup -- subsystem-group "1 if in last straight"
+  
+  
+			group "1 if in second turn" -- subsystem-group
+
+				p_0_Asgardus_Challenge_boolean_T_1[20]
+				{
+				 type:    uint(8)*
+				 alias:   "check turn 2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "X" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "X"
+
+				group "Y" -- block-group
+				{
+				 block: "Inport"
+				}
+					p_0_Asgardus_Challenge_real_T_0[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Y"
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[32]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[31]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[34]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_1_Asgardus_Challenge_real_T_0[33]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "Logical\nOperator" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_Asgardus_Challenge_boolean_T_1[20]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator"
+
+  
+  
+				group "Check \nDynamic Range" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[16]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[6]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[16]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[16]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[15]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[14]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range"
+  
+  
+				group "Check \nDynamic Range1" -- subsystem-group
+				{
+				 desc:  "min < u < max"
+				}
+
+					p_0_Asgardus_Challenge_boolean_T_1[19]
+					{
+					 type:    uint(8)*
+					 alias:   "out"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "max" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "max"
+
+					group "min" -- block-group
+					{
+					 block: "Inport"
+					}
+						-- Skipping output Out1
+
+
+					endgroup -- block-group "min"
+
+					group "u" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_Asgardus_Challenge_real_T_0[10]
+						{
+						 type:    flt(64,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "u"
+
+					group "Assertion" -- block-group
+					{
+					 block: "Assertion"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[19]
+						{
+						 type:    uint(8)*
+						 alias:   "In1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   READONLY
+						}
+
+
+
+					endgroup -- block-group "Assertion"
+
+					group "conjunction" -- block-group
+					{
+					 block: "Logic"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[19]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "conjunction"
+
+					group "max_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[18]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "max_relop"
+
+					group "min_relop" -- block-group
+					{
+					 block: "RelationalOperator"
+					}
+						p_0_Asgardus_Challenge_boolean_T_1[17]
+						{
+						 type:    uint(8)*
+						 alias:   "Out1"
+						 range:   < 0 ; 1 >
+						 bitmask: 0x01
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "min_relop"
+
+
+
+				endgroup -- subsystem-group "Check \nDynamic Range1"
+
+
 			endgroup -- subsystem-group "1 if in second turn"
   
   
@@ -4503,7 +4593,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[26]
+					p_1_Asgardus_Challenge_real_T_0[28]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -4518,7 +4608,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[25]
+					p_1_Asgardus_Challenge_real_T_0[27]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -4533,7 +4623,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[28]
+					p_1_Asgardus_Challenge_real_T_0[30]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -4548,7 +4638,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Asgardus_Challenge_real_T_0[27]
+					p_1_Asgardus_Challenge_real_T_0[29]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -4969,7 +5059,7 @@ group "Model Root"
 		 origin:  "Asgardus_Challenge/Control Algorithm/Trigonometric\nFunction/Out1"
 		 flags:   READONLY
 		}
-		p_0_Asgardus_Challenge_real_T_0[56]
+		p_0_Asgardus_Challenge_real_T_0[58]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "steer"
@@ -5528,14 +5618,14 @@ group "Labels"
 	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/offset/Out1"
 	 flags:   READONLY
 	}
-	p_0_Asgardus_Challenge_real_T_0[48]
+	p_0_Asgardus_Challenge_real_T_0[50]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "offset_error"
 	 origin:  "Asgardus_Challenge/Control Algorithm/Control/Normal Driving/Subtract2/Out1"
 	 flags:   READONLY
 	}
-	p_0_Asgardus_Challenge_real_T_0[56]
+	p_0_Asgardus_Challenge_real_T_0[58]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "steer"

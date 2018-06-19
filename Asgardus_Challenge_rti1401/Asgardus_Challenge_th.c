@@ -5,7 +5,7 @@
    Task Configuration file for model : Asgardus_Challenge
 
    RTI1401 7.9 (02-Nov-2017)/2.17
-   19-Jun-2018 13:13:07
+   19-Jun-2018 14:46:53
 
    MATLAB 9.3.0.713579 (R2017b)
 

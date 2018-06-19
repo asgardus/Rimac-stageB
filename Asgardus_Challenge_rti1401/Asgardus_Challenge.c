@@ -7,9 +7,9 @@
  *
  * Code generation for model "Asgardus_Challenge".
  *
- * Model version              : 1.17
+ * Model version              : 1.19
  * Simulink Coder version : 8.13 (R2017b) 24-Jul-2017
- * C source code generated on : Tue Jun 19 13:13:08 2018
+ * C source code generated on : Tue Jun 19 14:46:54 2018
  *
  * Target selection: rti1401.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -231,7 +231,7 @@ void Asgardus_Challenge_output(void)
    *  Constant: '<S48>/Constant2'
    */
   Asgardus_Challenge_B.max_relop_d = (Asgardus_Challenge_B.SFunction1_o4_k <
-    Asgardus_Challenge_P.Constant2_Value);
+    Asgardus_Challenge_P.Constant2_Value_p);
 
   /* Logic: '<S55>/conjunction' */
   Asgardus_Challenge_B.conjunction_b = (Asgardus_Challenge_B.min_relop_p &&
@@ -276,6 +276,42 @@ void Asgardus_Challenge_output(void)
   /* Logic: '<S51>/Logical Operator' */
   Asgardus_Challenge_B.LogicalOperator_n = (Asgardus_Challenge_B.conjunction_bi &&
     Asgardus_Challenge_B.conjunction_n);
+
+  /* RelationalOperator: '<S58>/min_relop' incorporates:
+   *  Constant: '<S50>/Constant1'
+   */
+  Asgardus_Challenge_B.min_relop_a = (Asgardus_Challenge_P.Constant1_Value_e <
+    Asgardus_Challenge_B.SFunction1_o4);
+
+  /* RelationalOperator: '<S58>/max_relop' incorporates:
+   *  Constant: '<S50>/Constant'
+   */
+  Asgardus_Challenge_B.max_relop_l = (Asgardus_Challenge_B.SFunction1_o4 <
+    Asgardus_Challenge_P.Constant_Value_h);
+
+  /* Logic: '<S58>/conjunction' */
+  Asgardus_Challenge_B.conjunction_p = (Asgardus_Challenge_B.min_relop_a &&
+    Asgardus_Challenge_B.max_relop_l);
+
+  /* RelationalOperator: '<S59>/min_relop' incorporates:
+   *  Constant: '<S50>/Constant3'
+   */
+  Asgardus_Challenge_B.min_relop_n = (Asgardus_Challenge_P.Constant3_Value_k3 <
+    Asgardus_Challenge_B.SFunction1_o4_k);
+
+  /* RelationalOperator: '<S59>/max_relop' incorporates:
+   *  Constant: '<S50>/Constant2'
+   */
+  Asgardus_Challenge_B.max_relop_dn = (Asgardus_Challenge_B.SFunction1_o4_k <
+    Asgardus_Challenge_P.Constant2_Value_h);
+
+  /* Logic: '<S59>/conjunction' */
+  Asgardus_Challenge_B.conjunction_d = (Asgardus_Challenge_B.min_relop_n &&
+    Asgardus_Challenge_B.max_relop_dn);
+
+  /* Logic: '<S50>/Logical Operator' */
+  Asgardus_Challenge_B.LogicalOperator_i = (Asgardus_Challenge_B.conjunction_p &&
+    Asgardus_Challenge_B.conjunction_d);
 
   /* S-Function (rti_commonblock): '<S6>/S-Function1' */
   /* This comment workarounds a code generation problem */
@@ -339,7 +375,8 @@ void Asgardus_Challenge_output(void)
   /* Logic: '<S25>/Logical Operator1' */
   Asgardus_Challenge_B.LogicalOperator1 =
     (Asgardus_Challenge_B.LogicalOperator_n &&
-     Asgardus_Challenge_B.LogicalOperator);
+     Asgardus_Challenge_B.LogicalOperator &&
+     Asgardus_Challenge_B.LogicalOperator_i);
 
   /* Switch: '<S25>/Switch1' incorporates:
    *  Constant: '<S25>/Constant'
@@ -394,10 +431,31 @@ void Asgardus_Challenge_output(void)
   Asgardus_Challenge_B.Sum = (Asgardus_Challenge_B.ProportionalGain +
     Asgardus_Challenge_B.Integrator) + Asgardus_Challenge_B.Diff;
 
-  /* Sum: '<S25>/Subtract2' incorporates:
+  /* Switch: '<S25>/Switch2' incorporates:
+   *  Constant: '<S25>/Constant2'
    *  Constant: '<S25>/Constant3'
    */
-  Asgardus_Challenge_B.offset_error = Asgardus_Challenge_P.Constant3_Value -
+  if (Asgardus_Challenge_B.LogicalOperator_n) {
+    Asgardus_Challenge_B.Switch2 = Asgardus_Challenge_P.Constant2_Value;
+  } else {
+    Asgardus_Challenge_B.Switch2 = Asgardus_Challenge_P.Constant3_Value;
+  }
+
+  /* End of Switch: '<S25>/Switch2' */
+
+  /* Switch: '<S25>/Switch3' incorporates:
+   *  Constant: '<S25>/Constant4'
+   */
+  if (Asgardus_Challenge_B.LogicalOperator_i) {
+    Asgardus_Challenge_B.Switch3 = Asgardus_Challenge_P.Constant4_Value;
+  } else {
+    Asgardus_Challenge_B.Switch3 = Asgardus_Challenge_B.Switch2;
+  }
+
+  /* End of Switch: '<S25>/Switch3' */
+
+  /* Sum: '<S25>/Subtract2' */
+  Asgardus_Challenge_B.offset_error = Asgardus_Challenge_B.Switch3 -
     Asgardus_Challenge_B.SFunction1_o2_n;
 
   /* Gain: '<S33>/Derivative Gain' */
@@ -733,7 +791,7 @@ void Asgardus_Challenge_output(void)
     Asgardus_Challenge_B.max_relop_i);
 
   /* Logic: '<S47>/Logical Operator' */
-  Asgardus_Challenge_B.LogicalOperator_i = (Asgardus_Challenge_B.conjunction_h &&
+  Asgardus_Challenge_B.LogicalOperator_ib = (Asgardus_Challenge_B.conjunction_h &&
     Asgardus_Challenge_B.conjunction_c);
 
   /* RelationalOperator: '<S56>/min_relop' incorporates:
@@ -755,7 +813,7 @@ void Asgardus_Challenge_output(void)
   /* RelationalOperator: '<S57>/min_relop' incorporates:
    *  Constant: '<S49>/Constant3'
    */
-  Asgardus_Challenge_B.min_relop_n = (Asgardus_Challenge_P.Constant3_Value_l <
+  Asgardus_Challenge_B.min_relop_nf = (Asgardus_Challenge_P.Constant3_Value_l <
     Asgardus_Challenge_B.SFunction1_o4_k);
 
   /* RelationalOperator: '<S57>/max_relop' incorporates:
@@ -765,48 +823,12 @@ void Asgardus_Challenge_output(void)
     Asgardus_Challenge_P.Constant2_Value_n);
 
   /* Logic: '<S57>/conjunction' */
-  Asgardus_Challenge_B.conjunction_g = (Asgardus_Challenge_B.min_relop_n &&
+  Asgardus_Challenge_B.conjunction_g = (Asgardus_Challenge_B.min_relop_nf &&
     Asgardus_Challenge_B.max_relop_n);
 
   /* Logic: '<S49>/Logical Operator' */
   Asgardus_Challenge_B.LogicalOperator_o = (Asgardus_Challenge_B.conjunction_hp &&
     Asgardus_Challenge_B.conjunction_g);
-
-  /* RelationalOperator: '<S58>/min_relop' incorporates:
-   *  Constant: '<S50>/Constant1'
-   */
-  Asgardus_Challenge_B.min_relop_a = (Asgardus_Challenge_P.Constant1_Value_e <
-    Asgardus_Challenge_B.SFunction1_o4);
-
-  /* RelationalOperator: '<S58>/max_relop' incorporates:
-   *  Constant: '<S50>/Constant'
-   */
-  Asgardus_Challenge_B.max_relop_l = (Asgardus_Challenge_B.SFunction1_o4 <
-    Asgardus_Challenge_P.Constant_Value_h);
-
-  /* Logic: '<S58>/conjunction' */
-  Asgardus_Challenge_B.conjunction_p = (Asgardus_Challenge_B.min_relop_a &&
-    Asgardus_Challenge_B.max_relop_l);
-
-  /* RelationalOperator: '<S59>/min_relop' incorporates:
-   *  Constant: '<S50>/Constant3'
-   */
-  Asgardus_Challenge_B.min_relop_nf = (Asgardus_Challenge_P.Constant3_Value_k3 <
-    Asgardus_Challenge_B.SFunction1_o4_k);
-
-  /* RelationalOperator: '<S59>/max_relop' incorporates:
-   *  Constant: '<S50>/Constant2'
-   */
-  Asgardus_Challenge_B.max_relop_dn = (Asgardus_Challenge_B.SFunction1_o4_k <
-    Asgardus_Challenge_P.Constant2_Value_h);
-
-  /* Logic: '<S59>/conjunction' */
-  Asgardus_Challenge_B.conjunction_d = (Asgardus_Challenge_B.min_relop_nf &&
-    Asgardus_Challenge_B.max_relop_dn);
-
-  /* Logic: '<S50>/Logical Operator' */
-  Asgardus_Challenge_B.LogicalOperator_ie = (Asgardus_Challenge_B.conjunction_p &&
-    Asgardus_Challenge_B.conjunction_d);
 
   /* Trigonometry: '<S4>/Trigonometric Function' */
   Asgardus_Challenge_B.beta = atan(Asgardus_Challenge_B.Divide);
